@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'savethepure',
+	'hostname' => 'savethepure.com',
+	'username' => 'u659940870_admin',
+	'password' => 'savethepure2017',
+	'database' => 'u659940870_stp',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
