@@ -8,6 +8,15 @@
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/font-awesome/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
       <div class="wrapper-container">
@@ -27,16 +36,16 @@
             <div class="mx-auto">
                 <div class="int-menu center">
                   <div class="menu-icon-wraps">
-                    <a href="" class="int-menu-icon">
+                    <a href="<?php echo base_url() ?>" class="int-menu-icon" title="Home">
                       <i class="fa fa-home"></i>
                     </a>
-                    <a href="" class="int-menu-icon">
+                    <a href="<?php echo base_url() ?>home/about" class="int-menu-icon" title="About US">
                       <i class="fa fa-group"></i>
                     </a>
-                    <a href="" class="int-menu-icon">
+                    <a href="" class="int-menu-icon" title="Event">
                       <i class="fa fa-rocket"></i>
                     </a>
-                    <a href="" class="int-menu-icon">
+                    <a href="" class="int-menu-icon" title="Cart">
                       <i class="fa fa-shopping-cart"></i>
                     </a>
                   </div>
@@ -44,10 +53,10 @@
             </div>
 
             <div class="account-icon-wraps xs-hide">
-              <a href="" class="account-icon">
+              <a href="<?php echo base_url() ?>member/login" class="account-icon" title="Login">
                 <i class="fa fa-unlock"></i>
               </a>
-              <a href="" class="account-icon">
+              <a href="<?php echo base_url() ?>member/register" class="account-icon">
                 <i class="fa fa-pencil-square-o"></i>
               </a>
             </div>
@@ -74,6 +83,6 @@
         </div>
     </div>
     <div class="wrapper-container logo center">
-        <img src="<?php echo base_url() ?>assets/img/stp-black.png" alt="">
+        <a href="<?php echo base_url() ?>"><img src="<?php echo base_url() ?>assets/img/stp-black.png" alt=""></a>
     </div>
         

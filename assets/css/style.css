@@ -305,3 +305,33 @@ a {
 .button.black:hover {
     background: #373535;
 }
+
+.badge {
+    padding: 1px 5px;
+    background: red;
+    color: #fff;
+    position: absolute;
+    right: 65px;
+    top: 10px;
+    font-size: 11px;
+    border-radius: 30px;
+}
+
+.login-container {
+    background: #252525;
+    padding: 20px 20px;
+    color: #fff;
+}
+
+.btn-stp--primary {
+    border-radius: 0 !important;
+    background-color: none !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.stp-link {
+    text-decoration: none !important;
+    color: #fff;
+}
