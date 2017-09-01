@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="form-group mt3">
                 <button type="submit" class="btn btn-link btn-block btn-stp--primary">Log In</button>
             </div>
-            <a href="<?php echo base_url() ?>member/register" class="center stp-link">
+            <a href="<?php echo base_url() ?>register" class="center stp-link">
                 <div class="small">Create an Account</div>
             </a>
         </form>

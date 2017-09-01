@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class M_about extends CI_Model {
 
 	/**
 	 * Index Page for this controller.
@@ -18,28 +18,13 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
-		$this->load->model('Product');
-		$queryRecords = $this->Product->list_product();
-		$data['products'] = $queryRecords; 
-
-		$this->load->view('home', $data);
-	}
-
 	public function about()
 	{
-		$this->load->model('M_about');
-		$queryRecords = $this->M_about->about();
-		$data['about'] = $queryRecords;
-		$this->load->view('aboutus', $data);
+		$sql = "select description from about";
+
+        // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
+        $queryRec = $this->db->query($sql)->row_array();
+        return $queryRec['description'];
 	}
 
-	public function event()
-	{
-		$this->load->model('M_events');
-		$queryRecords = $this->M_events->events();
-		$data['events'] = $queryRecords;
-		$this->load->view('event', $data);
-	}
 }

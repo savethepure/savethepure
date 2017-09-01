@@ -53,8 +53,10 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
-$route['(:any)'] = "products/show_product/$1";
+// $route['(:any)'] = "products/show_product/$1";
 $route['product/(:any)'] = "products/show_product/$1";
-$route['member/login'] = "member/login";
-$route['pages/about'] = "home/about";
+$route['login'] = "member/login";
+$route['register'] = "member/register";
+$route['about'] = "home/about";
+$route['event'] = "home/event";
 

@@ -39,10 +39,10 @@
                     <a href="<?php echo base_url() ?>" class="int-menu-icon" title="Home">
                       <i class="fa fa-home"></i>
                     </a>
-                    <a href="<?php echo base_url() ?>home/about" class="int-menu-icon" title="About US">
+                    <a href="<?php echo base_url() ?>about" class="int-menu-icon" title="About US">
                       <i class="fa fa-group"></i>
                     </a>
-                    <a href="" class="int-menu-icon" title="Event">
+                    <a href="<?php echo base_url() ?>event" class="int-menu-icon" title="Event">
                       <i class="fa fa-rocket"></i>
                     </a>
                     <a href="" class="int-menu-icon" title="Cart">
@@ -53,10 +53,10 @@
             </div>
 
             <div class="account-icon-wraps xs-hide">
-              <a href="<?php echo base_url() ?>member/login" class="account-icon" title="Login">
+              <a href="<?php echo base_url() ?>login" class="account-icon" title="Login">
                 <i class="fa fa-unlock"></i>
               </a>
-              <a href="<?php echo base_url() ?>member/register" class="account-icon">
+              <a href="<?php echo base_url() ?>register" class="account-icon">
                 <i class="fa fa-pencil-square-o"></i>
               </a>
             </div>

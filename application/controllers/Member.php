@@ -48,10 +48,61 @@ class Member extends CI_Controller {
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $fullname = $_POST['fullname'];   
+        $fullname = $_POST['fullname'];  
+
+		$this->load->model('M_member');
+		
+		$check_email = $this->M_member->check_email($email);
+		
+		if($check_email >= 1)
+		{
+			$this->session->set_flashdata('error', 'Email sudah terdaftar');
+		}
+		else{
+			$code = base64_encode(date("h:i:sa"));
+			$query = $this->M_member->register($fullname,$email,$password,$code);
+			
+			if($query)
+			{
+				$send_mail = $this->sendMail($email, $code);
+				if ($send_mail == 'OK')
+				{
+					redirect('member/registration_success');
+				}
+				else{
+					$this->session->set_flashdata('error', 'Terjadi kesalahan saat medaftarkan akun anda.');
+				}
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'Terjadi kesalahan saat medaftarkan akun anda.');
+			}
+		}
+
+		redirect('member/register');
     }
 
-    public function sendMail()
+	public function registration_success()
+	{
+		$this->load->view('registration_status');
+	}	
+
+	public function verification($code='')
+	{
+		$this->load->model('M_member');
+		$verif = $this->M_member->verification($code);
+
+		if($verif) {
+			$data['status'] = 'Success';
+		}
+		else
+		{
+			$data['status'] = 'Failed';
+		}
+		$this->load->view('verification',$data);
+	}
+
+    public function sendMail($email='', $code='')
 	{
         $email = $_POST['email'];
 
@@ -70,9 +121,10 @@ class Member extends CI_Controller {
 		   // $msg = '<html>Halo '.$fullname.', Selamat Pendaftaran anda telah berhasil</html>';
 
 		 $msg = "<html>
-                    <div style='width:100%;background:#f8f8f8;padding:30px;text-align:center;'>
-                        <div><h1>Save the Pure</h1></div>
+                    <div style='width:100%;background:#252525;padding:30px;text-align:center;color:#fff;'>
+                        <div><h1>SaveThePure</h1></div>
                         <h1>Selamat, Pedaftaran anda telah berhasil</h1>
+						<h4>Klik Link <a href='".base_url()."member/verification/".$code."'>ini</a> untuk melakukan Verifikasi email anda.</h4>
                     </div>
                 </html>";
 
@@ -88,7 +140,8 @@ class Member extends CI_Controller {
 		 }
 		 else
 		 {
-		  show_error($this->email->print_debugger());
+		//   show_error($this->email->print_debugger());
+			return 'FAIL';
 		 }
 
          echo "Registrasi Berhasil";

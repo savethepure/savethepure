@@ -258,15 +258,10 @@ a {
     border: 1px solid #252525;
 }
 
-
-.b-product-picture {
-    border-right: 1px solid #252525;
-}
-
 .b-product-picture img {
     width: 100%;
-}
 
+}
 @media (min-width: 768px){
     .b-product-picture img {
         width: 100%;
@@ -334,4 +329,10 @@ a {
 .stp-link {
     text-decoration: none !important;
     color: #fff;
+}
+
+@media (min-width: 40em){
+    .b-product-picture {
+        border-right: none;
+    }
 }
