@@ -18,12 +18,12 @@ class M_member extends CI_Model {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function register($fullname,$email,$password,$code)
+	public function register($fullname,$email,$password,$code,$uuid)
 	{
-		$sql = "insert into user values (null,?,?,?,0,?)";
+		$sql = "insert into user values (null,?,?,?,0,?,?)";
 
         // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
-        $queryRec = $this->db->query($sql, array($email,$password,$fullname,$code));
+        $queryRec = $this->db->query($sql, array($email,md5($password),$fullname,$code,$uuid));
         return $queryRec;
 	}
 
@@ -43,6 +43,23 @@ class M_member extends CI_Model {
         // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
         $queryRec = $this->db->query($sql, array($code));
         return $queryRec;
+	}
+
+	public function login ($email, $password)
+	{
+		$sql = "select * from user where email = ? and password = ? and status_activation = 1 ";
+
+        // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
+        $query = $this->db->query($sql, array($email, md5($password)));
+
+		if ($query->num_rows() == 1) {
+			$data = $query->row_array();
+			return $data;
+		}
+		else
+		{
+			return FALSE;
+		}
 	}
 
 }

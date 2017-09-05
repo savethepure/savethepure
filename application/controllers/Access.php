@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Access extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,26 +20,20 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->model('Product');
-		$queryRecords = $this->Product->list_product();
-		$data['products'] = $queryRecords; 
-		
-		$this->load->view('home', $data);
+		$this->load->view('access');
 	}
 
-	public function about()
-	{
-		$this->load->model('M_about');
-		$queryRecords = $this->M_about->about();
-		$data['about'] = $queryRecords;
-		$this->load->view('aboutus', $data);
-	}
+    public function in_access()
+    {
+        $code = "savethepure2017";
 
-	public function event()
-	{
-		$this->load->model('M_events');
-		$queryRecords = $this->M_events->events();
-		$data['events'] = $queryRecords;
-		$this->load->view('event', $data);
-	}
+        $codein = $_POST['code'];
+        if ($codein == $code)
+        {
+            redirect('home');
+        }
+        else{
+            redirect('/');
+        }
+    }
 }

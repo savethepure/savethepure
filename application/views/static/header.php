@@ -53,12 +53,30 @@
             </div>
 
             <div class="account-icon-wraps xs-hide">
+              
+              <?php
+                if ($this->session->userdata('login'))
+                {
+                  $name = explode(" ", $this->session->login['fullname']);
+                ?>  
+                  <div class="user-name">
+                    <p style="color:#252525;"><b>Welcome, <?php echo $name[0]; ?></b></p>
+                  </div>
+              <?php }
+                else
+                {
+              ?>
+
               <a href="<?php echo base_url() ?>login" class="account-icon" title="Login">
                 <i class="fa fa-unlock"></i>
               </a>
               <a href="<?php echo base_url() ?>register" class="account-icon">
                 <i class="fa fa-pencil-square-o"></i>
               </a>
+
+              <?php 
+                }
+              ?>
             </div>
 
             <div class="mobile-menu-wraps md-hide lg-hide center">
@@ -72,17 +90,42 @@
                 <a href="" class="icon-mobile">
                   <i class="fa fa-instagram"></i>
                 </a>
+
+                <?php
+                if ($this->session->userdata('login'))
+                {
+                  $name = explode(" ", $this->session->login['fullname']);
+                ?>
+                  <span style="border: solid 1px #252525;padding:5px;border-radius:9px;">
+                    <a href="" class="icon-mobile">
+                      <i class="fa fa-user"></i>
+                    </a>  
+                    <span class="user-name" style="color:#252525;margin-left:-9px;">
+                      <b><?php echo $name[0]; ?></b>
+                    </span>
+                  </span>
+              <?php }
+                else
+                {
+              ?>
+
                 <a href="" class="icon-mobile">
                   <i class="fa fa-unlock"></i>
                 </a>
                 <a href="" class="icon-mobile">
                   <i class="fa fa-pencil-square-o"></i>
                 </a>
+
+              <?php 
+                }
+              ?>
               </div>
             </div>
         </div>
     </div>
     <div class="wrapper-container logo center">
-        <a href="<?php echo base_url() ?>"><img src="<?php echo base_url() ?>assets/img/stp-black.png" alt=""></a>
+        <div class="my2">
+          <a href="<?php echo base_url() ?>"><img src="<?php echo base_url() ?>assets/img/stp-black.png" alt=""></a>
+        </div>
     </div>
         

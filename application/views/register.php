@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="form-group has-feedback">
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" required>
-                 <span class="glyphicon glyphicon-remove form-control-feedback"></span> 
+                 <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span>  -->
             </div>
             <div class="form-group has-feedback">
                 <label for="password">Password:</label>

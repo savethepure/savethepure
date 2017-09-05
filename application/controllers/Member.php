@@ -36,7 +36,25 @@ class Member extends CI_Controller {
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
+		$this->load->model('M_member');
+		
+		$data_login = $this->M_member->login($email, $password);
 
+		if (!$data_login)
+		{
+			$this->session->set_flashdata('error', 'Email atau Password anda salah');
+			redirect('member/login');	 
+		}
+		else
+		{
+
+			$login_session['email'] = $data_login['email'];
+			$login_session['uuid'] = $data_login['uuid'];
+			$login_session['fullname'] = $data_login['fullname'];
+			$this->session->set_userdata('login', $login_session);
+			
+			redirect('home');
+		}
     }
 
     public function register()
@@ -49,6 +67,7 @@ class Member extends CI_Controller {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $fullname = $_POST['fullname'];  
+		$uuid = $this->uuid->v4(); 
 
 		$this->load->model('M_member');
 		
@@ -60,7 +79,7 @@ class Member extends CI_Controller {
 		}
 		else{
 			$code = base64_encode(date("h:i:sa"));
-			$query = $this->M_member->register($fullname,$email,$password,$code);
+			$query = $this->M_member->register($fullname,$email,$password,$code,$uuid);
 			
 			if($query)
 			{
@@ -121,7 +140,7 @@ class Member extends CI_Controller {
 		   // $msg = '<html>Halo '.$fullname.', Selamat Pendaftaran anda telah berhasil</html>';
 
 		 $msg = "<html>
-                    <div style='width:100%;background:#252525;padding:30px;text-align:center;color:#fff;'>
+                    <div style='width:100%;background:#252525;padding-top:20px;padding-bottom:20px;text-align:center;color:#fff;'>
                         <div><h1>SaveThePure</h1></div>
                         <h1>Selamat, Pedaftaran anda telah berhasil</h1>
 						<h4>Klik Link <a href='".base_url()."member/verification/".$code."'>ini</a> untuk melakukan Verifikasi email anda.</h4>

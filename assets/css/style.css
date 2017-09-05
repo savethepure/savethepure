@@ -13,6 +13,10 @@ a {
     text-decoration: none;
 }
 
+.header a:hover {
+    text-decoration: none !important;
+}
+
 .wrapper-container {
     max-width: 950px;
     background: #FFF;
@@ -90,6 +94,10 @@ a {
     padding-bottom: 10px;
 }
 
+.logo img{
+    width: 364px;
+}
+
 @media (max-width: 991px) {
     .logo{
         padding-top: 10px;
@@ -97,7 +105,7 @@ a {
     }
 
     .logo img {
-        width: 100px;
+        width: 300px;
     }
 }
 
