@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="wrapper-container u-py3">
     <hr>
-    <h1 class="center mt1">Our Event</h1>
+    <h2 class="center mt1">Our Event</h2>
     <hr>
 
     <?php foreach ($events as $rows) { ?>

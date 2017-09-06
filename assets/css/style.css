@@ -89,6 +89,17 @@ a {
     cursor: pointer;
 }
 
+.badge-int-menu {
+    font-size: 10px;
+    margin-bottom: 45px;
+    position: relative;
+    top: -15px;
+    background: red;
+    padding: 1px 6px;
+    border-radius: 39px;
+    left: -11px;
+}
+
 .logo {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -343,4 +354,14 @@ a {
     .b-product-picture {
         border-right: none;
     }
+}
+
+/*cart  */
+table td {
+    vertical-align: middle !important;
+}
+
+/*header  */
+.user-name {
+    cursor: pointer;
 }

@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <title>Save The Pure | About Us</title>
 <div class="wrapper-container u-py3">
     <hr>
-        <h1 class="center mt1">About Us</h1>
+        <h2 class="center mt1">About Us</h2>
     <hr>
 
     <p>

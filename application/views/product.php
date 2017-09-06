@@ -46,7 +46,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <hr>
                 <div class="btn-cart center py1 px1">
-                    <button type="submit" class="button large black">Add to Cart</button>
+                    <a href="<?php echo base_url().'cart/add/'.$product_id ?>">
+                        <div class="button large black">Add to Cart</div>
+                    </a>
                 </div>
             </div>
         </div>

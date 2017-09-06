@@ -20,7 +20,7 @@
     </head>
     <body>
       <div class="wrapper-container">
-        <div class="header overflow-hidden relative">
+        <div class="header relative">
             <div class="social-icon-wraps xs-hide">
               <a href="" class="social-icon">
                 <i class="fa fa-twitter"></i>
@@ -45,8 +45,14 @@
                     <a href="<?php echo base_url() ?>event" class="int-menu-icon" title="Event">
                       <i class="fa fa-rocket"></i>
                     </a>
-                    <a href="" class="int-menu-icon" title="Cart">
-                      <i class="fa fa-shopping-cart"></i>
+                    <a href="<?php echo base_url() ?>cart" class="int-menu-icon" title="Cart">
+                      <i class="fa fa-shopping-cart">
+                        <?php if ($this->cart->total_items() > 0) { ?>
+                        <span class="badge-int-menu">
+                          <?php echo $this->cart->total_items(); ?>
+                        </span>
+                        <?php } ?>
+                      </i>
                     </a>
                   </div>
                 </div>
@@ -59,8 +65,16 @@
                 {
                   $name = explode(" ", $this->session->login['fullname']);
                 ?>  
-                  <div class="user-name">
-                    <p style="color:#252525;"><b>Welcome, <?php echo $name[0]; ?></b></p>
+                  <div class="user-name dropdown">
+                    <p class="dropdown-toggle" data-toggle="dropdown" style="color:#252525;">
+                      <b>Welcome, <?php echo $name[0]; ?></b>
+                      <span class="caret"></span>  
+                    </p>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Account Setting</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Log Out</a></li>
+                    </ul>
                   </div>
               <?php }
                 else
