@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </td>
                             <td>
                                 <?php if ($order['status_pembayaran'] == 0 ){ ?>
-                                    <span class="label label-default">Not yet</span>
+                                    <a href="<?php echo base_url().'checkout/payment/'.$order['uuid'] ?>"><span class="label label-default">Not yet</span></a>
                                 <?php } else if($order['status_pembayaran'] == 1){ ?>
                                     <span class="label label-primary">Verification</span>
                                 <?php } else if($order['status_pembayaran'] == 2){ ?>
