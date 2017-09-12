@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<?php include('static/helmet.php'); ?>
+
 <?php include('static/header.php'); ?>
 
 <title>Save The Pure | About Us</title>
@@ -9,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <h2 class="center mt1">About Us</h2>
     <hr>
 
-    <p>
+    <p class="center">
         <?php echo $about; ?>
     </p>
 </div>

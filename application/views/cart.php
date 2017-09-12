@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<?php include('static/helmet.php'); ?>
+
 <?php include('static/header.php'); ?>
 
 <title>Save The Pure | Cart</title>
@@ -36,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span><a href="<?php echo base_url().'cart/remove/'.$product['rowid'] ?>">Remove Item</a></span>
                     </td>
                     <td class="col-1">
-                        M
+                        <? echo $product['size'] ?>
                     </td>
                     <td class="col-2">
                         Rp. <? echo $product['price'] ?>
@@ -79,5 +81,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <?php } ?>
     </div>
+    </form>
+    <form method="post" action="<?php echo base_url() ?>checkout">
+        <input type="hidden" name="refs" value="checkout">
+        <div class="col-4 mx-auto center mt4">
+            <button class="btn btn-default bg-black btn-block">Proced to Checkout</button>
+        </div>
+
     </form>
 </div>

@@ -28,20 +28,25 @@ class Cart extends CI_Controller {
 		$this->load->view('cart',$data);
 	}
 
-	function add($id) {
+	function add() {
+		$id = $_POST['id'];
+		$qty = $_POST['qty'];
+		$size = $_POST['size'];
+
 		$this->load->model('M_cart');
         $product = $this->M_cart->get($id);
-		// $qty = $_POST['qty'];
 
         $data = array(
             'id'      => $product->id,
-            'qty'     => 1,
+            'qty'     => $qty,
             'price'   => $product->price,
             'name'    => $product->product_name,
-			'picture' => $product->picture
+			'picture' => $product->picture,
+			'size'	  => $size
         );
         $this->cart->insert($data);
-        redirect("cart");
+
+		echo "ok";
     }
 
 	function update()

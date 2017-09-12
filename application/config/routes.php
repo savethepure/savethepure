@@ -59,4 +59,5 @@ $route['login'] = "member/login";
 $route['register'] = "member/register";
 $route['about'] = "home/about";
 $route['event'] = "home/event";
+$route['cart'] = "cart";
 

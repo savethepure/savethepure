@@ -29,13 +29,23 @@ class Member extends CI_Controller {
 
     public function login()
     {
-        $this->load->view('login');
+		$refs = $this->uri->segment(3);
+		$data['refs'] = $refs;
+        $this->load->view('login',$data);
     }
 
     public function do_login()
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
+		if (isset($_POST['refs']))
+		{
+			$refs = $_POST['refs'];
+		}
+		else{
+			$refs = "";
+		}
+
 		$this->load->model('M_member');
 		
 		$data_login = $this->M_member->login($email, $password);
@@ -52,8 +62,15 @@ class Member extends CI_Controller {
 			$login_session['uuid'] = $data_login['uuid'];
 			$login_session['fullname'] = $data_login['fullname'];
 			$this->session->set_userdata('login', $login_session);
+			if($refs == '')
+			{
+				redirect('home');
+			}
+			else
+			{
+				redirect(base64_decode($refs));
+			}
 			
-			redirect('home');
 		}
     }
 
@@ -121,6 +138,12 @@ class Member extends CI_Controller {
 		$this->load->view('verification',$data);
 	}
 
+	public function logout()
+	{
+		$this->session->unset_userdata('login');
+		redirect('home');
+	}
+
     public function sendMail($email='', $code='')
 	{
         $email = $_POST['email'];
@@ -165,6 +188,15 @@ class Member extends CI_Controller {
 
          echo "Registrasi Berhasil";
 
+	}
+
+	public function account_order()
+	{
+		$this->load->model('M_member');
+		$uuid = $this->session->login['uuid'];
+		$query = $this->M_member->list_order($uuid);
+		$data['orders'] = $query;
+		$this->load->view('list_order',$data);
 	}
 
 }

@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<?php include('static/helmet.php'); ?>
+
 <?php include('static/header.php'); ?>
 
 <title>Save The Pure | Registration Success</title>

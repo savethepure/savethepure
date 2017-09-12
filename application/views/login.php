@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<?php include('static/helmet.php'); ?>
+
 <?php include('static/header.php'); ?>
 
 <title>Save The Pure | Login</title>
@@ -13,6 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php } ?>
         <hr>
         <form action="<?php echo base_url() ?>member/do_login" method="post">
+            <input type="hidden" name="refs" value="<?php echo $refs; ?>">
             <div class="form-group has-feedback">
                 <label for="usr">Email:</label>
                 <input type="email" class="form-control" id="email" name="email">

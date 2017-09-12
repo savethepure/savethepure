@@ -62,4 +62,13 @@ class M_member extends CI_Model {
 		}
 	}
 
+	public function list_order($uuid)
+	{
+		$sql = "select a.*,group_concat(concat(b.product_name, ' (', b.qty,' pcs )') SEPARATOR ',') as item from `order` a 
+				left join detail_order b on a.uuid = b.order_id where id_user = ?
+				group by a.uuid";
+		$queryRec = $this->db->query($sql, array($uuid))->result_array();
+		return $queryRec;
+	}
+
 }
