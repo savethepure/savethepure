@@ -6,6 +6,57 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="header-wrapper-global">
     <?php include('static/header.php'); ?>
 </div>
+<style>
+
+    .card {
+    display: block;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    transition: box-shadow .25s;
+    }
+    .card:hover {
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    .img-card {
+    width: 100%;
+    border-top-left-radius:2px;
+    border-top-right-radius:2px;
+    display:block;
+        overflow: hidden;
+    }
+    .img-card img{
+    width: 100%;
+    height: 400px;
+    object-fit:cover;
+    transition: all .25s ease;
+    }
+    .card-content {
+    padding:15px;
+    text-align:left;
+    }
+    .card-title {
+    margin-top:0px;
+    font-weight: 700;
+    font-size: 1.65em;
+    }
+    .card-title a {
+    color: #000;
+    text-decoration: none !important;
+    }
+    .card-read-more {
+    border-top: 1px solid #D4D4D4;
+    }
+    .card-read-more a {
+    text-decoration: none !important;
+    padding:10px;
+    font-weight:600;
+    text-transform: uppercase
+    }
+
+</style>
 
 <title>Save The Pure | Home</title>
 
@@ -16,10 +67,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $picture = $rows['picture'];
         $desc = $rows['desc'];
         $price = $rows['price'];
+        $url = $rows['url'];
+        $type = $rows['type'];
+        $title = $rows['title'];
+        $cont_desc = $rows['deskripsi'];
     }
 ?>
+<!-- profile section  -->
+<div class="wrapper-container py2 profile-div animated fadeIn">
+    <div class="card">
+        <div class="img-card" href="">
+            <?php if($type == 'video'){ ?>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="<?php echo $url; ?>"></iframe>
+                </div>
+            <?php }else if($type == 'photo'){ ?>
+                <img src="<?php echo base_url() ?>assets/img/events/<?php echo $url; ?>" alt="">
+            <?php } ?>
+        </div>
+        <br />
+        <div class="card-content">
+            <h4 class="card-title">
+                <a href="">
+                    <?php echo $title; ?>
+                </a>
+            </h4>
+            <div class="">
+                <?php echo $cont_desc; ?>
+            </div>
+            <hr>
+            <div class="col-6 mx-auto mt2">
+                <div class=" btn btn-default btn-block bg-black" onclick="buy()">Buy Product</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--product section  -->
 <input type="hidden" id="id_product" value="<?php echo $product_id; ?>">
-<div class="wrapper-container py2"> 
+<div class="wrapper-container py2 product-div hidden animated fadeInLeft"> 
     <div class="box-product px1">
         <div class="title-product center py1 col-12">
             <h2><?php echo $product_name; ?></h2>
@@ -72,6 +160,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="snackbar"><?php echo $product_name; ?> successfully added. <a href="<?php echo base_url() ?>cart">View cart</a></div>
 <div id="snackbar_size">Please Choose Size...</a></div>
 <script src="<?php echo base_url() ?>assets/vendor/jquery/jquery.js"></script>
+<script>
+    function buy()
+    {
+        $('.product-div').removeClass('hidden');
+        $('.profile-div').addClass('hidden');
+    }
+</script>
 <script>
     
     function choose_size() {

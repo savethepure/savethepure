@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="<?php echo base_url() ?>assets/css/basscss.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
+        <link href="<?php echo base_url() ?>assets/css/animate.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/font-awesome/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/vendor/loading/loading.css"/>

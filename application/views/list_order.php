@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php if ($order['status_pembayaran'] == 0 ){ ?>
                                     <a href="<?php echo base_url().'checkout/payment/'.$order['uuid'] ?>"><span class="label label-default">Not yet</span></a>
                                 <?php } else if($order['status_pembayaran'] == 1){ ?>
-                                    <span class="label label-primary">Verification</span>
+                                    <span class="label label-primary" data-toggle="tooltip" data-placement="bottom" title="your payment is being verified by our team">Verification</span>
                                 <?php } else if($order['status_pembayaran'] == 2){ ?>
                                     <span class="label label-success">Done</span>
                                 <?php } ?>
@@ -62,3 +62,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </table>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+</script>

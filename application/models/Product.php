@@ -28,9 +28,9 @@ class Product extends CI_Model {
 	}
 
     public function show_product($nama='') {
-        $sql = "SELECT id, product_name, picture, `desc`, price
-                FROM products
-                WHERE product_name LIKE ?
+        $sql = "SELECT a.id, a.product_name, a.picture, a.`desc`, a.price, b.url, b.type, b.title, b.deskripsi
+                FROM products a left join content_product b on a.id = b.id_product
+                WHERE a.product_name LIKE ?
                 ORDER BY `timestamp` DESC";
 
         // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
