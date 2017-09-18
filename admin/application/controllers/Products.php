@@ -26,4 +26,21 @@ class Products extends CI_Controller {
 		
 		$this->load->view('list_product', $data);
 	}
+
+	function delete($id='')
+	{
+		$this->load->model('Product');
+		$queryRecords = $this->Product->delete_product($id);
+
+		redirect('products');
+	}
+
+	function edit($id='')
+	{
+		$this->load->model('Product');
+		$queryRecords = $this->Product->detail_product($id);
+		$data['products'] = $queryRecords; 
+		
+		$this->load->view('edit_product', $data);
+	}
 }

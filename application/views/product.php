@@ -118,19 +118,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="col col-12 md-col-6 sm-col-12 lg-col-6 b-product-desc">
                 <div class="price col-12 py1 px1">
-                    <h3>Price : Rp. <?php echo $price; ?></h3> 
+                    <h5>Price : IDR <?php echo $price; ?></h5> 
                 </div>
-                <hr>
+                <hr class="mt0 mb0">
                 <div class="size col-12 py1 px1">
-                    <h3>Size : 
-                        <?php foreach ($sizes as $rows) { ?>
-                            <input type="radio" name="size" onchange="choose_size()" value="<?php echo $rows['size']; ?>" checked><?php echo $rows['size']; ?>
-                        <?php } ?>
-                    </h3> 
+                    <h5 class="inline-block mr2">Size : </h5> 
+                    <div class="form-group">
+                    	<select name="size" class="form-control" id="size">
+                    		<?php foreach ($sizes as $rows) { ?>
+                    			<option value="<?php echo $rows['size']; ?>"><?php echo $rows['size']; ?></option>
+                    		<?php } ?>
+                    	</select>
+                    </div>
+                        <!-- <?php foreach ($sizes as $rows) { ?>
+                            <div class="form-group inline-block mr2">
+                                <input type="radio" name="size" onchange="choose_size()" value="<?php echo $rows['size']; ?>" checked><?php echo $rows['size']; ?>
+                            </div>
+                        <?php } ?> -->
+                    
                 </div>
-                <hr>
+                <hr class="mt0">
                 <div class="quantity col-12 py1 px1 relative">
-                    <h3 class="inline-block mr3 mt0 mb0">Quantity:</h3> 
+                    <h5 class="inline-block mr3 mt0 mb0">Quantity:</h5> 
                     <div class="clearfix col-8 inline-block center mt3 qty-wrapper">
                         <div class="col col-2 px1">
                             <div class="quantity-control quantity-down">-</div>
@@ -142,11 +151,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                 </div>
-                <hr>
+                <hr class="">
                 <div class="description py1 px1">
                     <p><?php echo $desc; ?></p>
                 </div>
-                <hr>
+                <hr class="mt0 mb0">
                 <div class="btn-cart center py1 px1">
                     <div class="button large black ld-over-inverse" onclick="add_cart()" id="add-cart">Add to Cart
                         <div class="ld ld-ball ld-flip"></div>

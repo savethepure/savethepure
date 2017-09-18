@@ -13,6 +13,16 @@ a {
     text-decoration: none;
 }
 
+.mt6 {
+    margin-top: 6rem;
+}
+
+.menu-link {
+    text-decoration: none !important;
+    color: #252525 !important;
+    font-weight: 600;
+}
+
 .header a:hover {
     text-decoration: none !important;
 }
@@ -468,4 +478,17 @@ input::-webkit-inner-spin-button {
 
 .panel-stp {
     border: 1px solid #e0e0e0 !important;
+}
+
+/*event*/
+.event-photo {
+	height: 400px;
+	overflow: hidden;
+}
+
+.event-photo img {
+	width: 100%;
+    height: 400px;
+	object-fit:cover;
+	transition: all .25s ease;
 }

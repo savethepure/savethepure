@@ -1,15 +1,16 @@
       <div class="wrapper-container">
         <div class="header relative">
             <div class="social-icon-wraps xs-hide">
-              <a href="" class="social-icon">
-                <i class="fa fa-twitter"></i>
+              <a href="" class="social-icon menu-link">
+                <!-- <i class="fa fa-twitter"></i> -->
+                Shop Location
               </a>
-              <a href="" class="social-icon">
+              <!-- <a href="" class="social-icon">
                 <i class="fa fa-facebook"></i>
               </a>
               <a href="" class="social-icon">
                 <i class="fa fa-instagram"></i>
-              </a>
+              </a> -->
             </div>
             
             <div class="mx-auto">
@@ -21,7 +22,7 @@
                     <a href="<?php echo base_url() ?>about" class="int-menu-icon" title="About US">
                       <i class="fa fa-group"></i>
                     </a>
-                    <a href="<?php echo base_url() ?>event" class="int-menu-icon" title="Event">
+                    <a href="<?php echo base_url() ?>events" class="int-menu-icon" title="Event">
                       <i class="fa fa-rocket"></i>
                     </a>
                     <a href="<?php echo base_url() ?>cart" class="int-menu-icon" title="Cart">
@@ -51,7 +52,7 @@
                     </p>
                     <ul class="dropdown-menu">
                       <li><a href="#">Account Setting</a></li>
-                      <li><a href="<?php echo base_url() ?>member/account_order">Account Order</a></li>
+                      <li><a href="<?php echo base_url() ?>member/account_order">Order Status</a></li>
                       <li class="divider"></li>
                       <li><a href="<?php echo base_url() ?>member/logout">Log Out</a></li>
                     </ul>
@@ -61,11 +62,13 @@
                 {
               ?>
 
-              <a href="<?php echo base_url() ?>login" class="account-icon" title="Login">
-                <i class="fa fa-unlock"></i>
+              <a href="<?php echo base_url() ?>login" class="account-icon mr2 menu-link" title="Login">
+                <!-- <i class="fa fa-unlock"></i> -->
+                Login
               </a>
-              <a href="<?php echo base_url() ?>register" class="account-icon">
-                <i class="fa fa-pencil-square-o"></i>
+              <a href="<?php echo base_url() ?>register" class="account-icon menu-link">
+                <!-- <i class="fa fa-pencil-square-o"></i> -->
+                Register
               </a>
 
               <?php 
@@ -75,15 +78,16 @@
 
             <div class="mobile-menu-wraps md-hide lg-hide center">
               <div class="icon-wraps mt1">
-                <a href="" class="icon-mobile">
-                  <i class="fa fa-twitter"></i>
+                <a href="" class="icon-mobile menu-link">
+                  <!-- <i class="fa fa-twitter"></i> -->
+                  Shop Location
                 </a>
-                <a href="" class="icon-mobile">
+                <!-- <a href="" class="icon-mobile">
                   <i class="fa fa-facebook"></i>
                 </a>
                 <a href="" class="icon-mobile">
                   <i class="fa fa-instagram"></i>
-                </a>
+                </a> -->
 
                 <?php
                 if ($this->session->userdata('login'))
@@ -103,11 +107,13 @@
                 {
               ?>
 
-                <a href="" class="icon-mobile">
-                  <i class="fa fa-unlock"></i>
+                <a href="" class="icon-mobile menu-link">
+                  <!-- <i class="fa fa-unlock"></i> -->
+                  Login
                 </a>
-                <a href="" class="icon-mobile">
-                  <i class="fa fa-pencil-square-o"></i>
+                <a href="" class="icon-mobile menu-link">
+                  <!-- <i class="fa fa-pencil-square-o"></i> -->
+                  Register
                 </a>
 
               <?php 

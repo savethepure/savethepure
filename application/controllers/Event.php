@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Event extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,26 +20,16 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->model('Product');
-		$queryRecords = $this->Product->list_product();
-		$data['products'] = $queryRecords; 
-		
-		$this->load->view('home', $data);
+		redirect('events');
 	}
 
-	public function about()
+	public function detail($evt_name="")
 	{
-		$this->load->model('M_about');
-		$queryRecords = $this->M_about->about();
-		$data['about'] = $queryRecords;
-		$this->load->view('aboutus', $data);
-	}
-
-	public function event()
-	{
-		$this->load->model('M_events');
-		$queryRecords = $this->M_events->events();
+		$evt_name = str_replace('-', ' ', $evt_name);
+		$this->load->model('M_event');
+		$queryRecords = $this->M_event->detail($evt_name);
 		$data['events'] = $queryRecords;
-		$this->load->view('list_event', $data);
+		$this->load->view('event_detail', $data);
 	}
+
 }

@@ -1,3 +1,12 @@
+<!-- footer content -->
+        <footer>
+          <div class="pull-right">
+           SaveThePure @2017</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+
 <!-- jQuery -->
     <script src="<?php echo base_url() ?>assets/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -35,6 +44,8 @@
     <!-- bootstrap-daterangepicker -->
     <script src="<?php echo base_url() ?>assets/vendors/moment/min/moment.min.js"></script>
     <script src="<?php echo base_url() ?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <script src="<?php echo base_url() ?>assets/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url() ?>assets/build/js/custom.min.js"></script>

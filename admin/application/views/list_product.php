@@ -34,8 +34,8 @@
                     <div class="mask">
                       <p><?php echo $rows['timestamp']; ?></p>
                       <div class="tools tools-bottom">
-                        <a href="#"><i class="fa fa-pencil"></i></a>
-                        <a href="#"><i class="fa fa-times"></i></a>
+                        <a href="<?php echo base_url().'products/edit/'.$rows['id']; ?>"><i class="fa fa-pencil"></i></a>
+                        <a href="<?php echo base_url().'products/delete/'.$rows['id']; ?>"><i class="fa fa-times"></i></a>
                       </div>
                     </div>
                   </div>

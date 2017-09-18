@@ -83,11 +83,31 @@ class Product extends CI_Model {
 
     public function list_product()
 	{
-		$sql = "select product_name, picture, timestamp, `desc`, price from products order by timestamp desc";
+		$sql = "select id,product_name, picture, timestamp, `desc`, price from products order by timestamp desc";
 
         // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
         $queryRec = $this->db->query($sql)->result_array();
         return $queryRec;
-	}    
+	}
+
+    public function delete_product($id)
+	{
+		$sql = "delete from products where id = ?";
+
+        // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
+        $queryRec = $this->db->query($sql, array($id));
+        return $queryRec;
+	}
+
+    public function detail_product($id='') {
+        $sql = "SELECT a.id, a.product_name, a.picture, a.`desc`, a.price, b.url, b.type, b.title, b.deskripsi
+                FROM products a left join content_product b on a.id = b.id_product
+                WHERE a.product_name LIKE ?
+                ORDER BY `timestamp` DESC";
+
+        // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
+        $queryRec = $this->db->query($sql,array($id))->result_array();
+        return $queryRec;
+    }    
 
 }

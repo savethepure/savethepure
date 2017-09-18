@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <title>Save The Pure | Cart</title>
 <div class="wrapper-container u-py3">
     <hr>
-        <h2 class="center mt1 bold">Shoping Cart</h2>
+        <h2 class="center mt1">Shoping Cart</h2>
     <hr>
     <div class="col-12 sm-col-12 md-col-10 lg-col-10 mx-auto">    
     <form method="post" action="<?php echo base_url() ?>cart/update">      
@@ -41,14 +41,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <? echo $product['size'] ?>
                     </td>
                     <td class="col-2">
-                        Rp. <? echo $product['price'] ?>
+                        IDR <? echo $product['price'] ?>
                     </td>
                     <td class="col-1">
                          <input type="hidden" name="rowid[]" value="<? echo $product['rowid'] ?>"> 
                         <input style="width:50px;" type="number" name="qty[]" value="<? echo $product['qty'] ?>">
                     </td>
                     <td class="col-2">
-                        Rp. <? echo $product['qty'] * $product['price'] ?>
+                        IDR <? echo $product['qty'] * $product['price'] ?>
                     </td>
                 </tr>
 
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <tr>
                     <td class="col-1 xs-hide sm-hide">&nbsp;</td>
                     <td colspan="4"><b>Grand Total</b></td>
-                    <td class="number"><b>Rp. <?= $this->cart->total(); ?></b></td>
+                    <td class="number"><b>IDR <?= $this->cart->total(); ?></b></td>
                 </tr> 
             <?php } else { ?>
                 
@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </form>
     <form method="post" action="<?php echo base_url() ?>checkout">
         <input type="hidden" name="refs" value="checkout">
-        <div class="col-4 mx-auto center mt4">
+        <div class="col-4 mx-auto center mt6">
             <button class="btn btn-default bg-black btn-block">Proced to Checkout</button>
         </div>
 
