@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <input type="password" class="form-control" id="pass" name="password">
                 <!-- <span class="glyphicon glyphicon-remove form-control-feedback"></span> -->
             </div>
-            <a href="" class="center stp-link">
+            <a href="<?php echo base_url() ?>member/forget_password" class="center stp-link">
                 <div class="small">forgot password?</div>
             </a>
             <div class="form-group mt3">

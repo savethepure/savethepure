@@ -97,10 +97,10 @@ class Member extends CI_Controller {
 		else{
 			$code = base64_encode(date("h:i:sa"));
 			$query = $this->M_member->register($fullname,$email,$password,$code,$uuid);
-			
+			$flag = 1;
 			if($query)
 			{
-				$send_mail = $this->sendMail($email, $code);
+				$send_mail = $this->sendMail($email, $code, $flag);
 				if ($send_mail == 'OK')
 				{
 					redirect('member/registration_success');
@@ -144,7 +144,7 @@ class Member extends CI_Controller {
 		redirect('home');
 	}
 
-    public function sendMail($email='', $code='')
+    public function sendMail($email='', $code='', $flag='')
 	{
         $email = $_POST['email'];
 
@@ -162,19 +162,36 @@ class Member extends CI_Controller {
 
 		   // $msg = '<html>Halo '.$fullname.', Selamat Pendaftaran anda telah berhasil</html>';
 
-		 $msg = "<html>
+		 if ($flag == 1) {
+			$msg = "<html>
                     <div style='width:100%;background:#252525;padding-top:20px;padding-bottom:20px;text-align:center;color:#fff;'>
                         <div><h1>SaveThePure</h1></div>
                         <h1>Selamat, Pedaftaran anda telah berhasil</h1>
 						<h4>Klik Link <a href='".base_url()."member/verification/".$code."'>ini</a> untuk melakukan Verifikasi email anda.</h4>
                     </div>
+                </html>";		 	
+		 } else if ($flag == 2) {
+		 	$msg = "<html>
+                    <div style='width:100%;background:#252525;padding-top:20px;padding-bottom:20px;text-align:center;color:#fff;'>
+                        <div><h1>SaveThePure</h1></div>
+                        <h1>Reset Password</h1>
+						<h4>Klik Link <a href='".base_url()."member/change_password/".$code."'>ini</a> untuk melakukan reset password anda.</h4>
+                    </div>
                 </html>";
+		 }
+
 
 		   $this->load->library('email', $config);
-		   $this->email->set_newline("\r\n");  
-		   $this->email->from('admin@savethepure.com', 'Pendaftaran Save the Pure'); // change it to yours
-		   $this->email->to($email);// change it to yours
-		   $this->email->subject('Pendaftaran Berhasil');
+		   $this->email->set_newline("\r\n");
+		   if ($flag == 1) {
+		     	$this->email->from('admin@savethepure.com', 'Pendaftaran Save the Pure'); // change it to yours
+			   $this->email->to($email);// change it to yours
+			   $this->email->subject('Pendaftaran Berhasil');
+		  	} else if ($flag == 2){
+				$this->email->from('admin@savethepure.com', 'Reset Password Save the Pure'); // change it to yours
+				$this->email->to($email);// change it to yours
+				$this->email->subject('Reset Password');
+		  	}  
 		   $this->email->message($msg);
 		 if($this->email->send())
 		 {
@@ -197,6 +214,59 @@ class Member extends CI_Controller {
 		$query = $this->M_member->list_order($uuid);
 		$data['orders'] = $query;
 		$this->load->view('list_order',$data);
+	}
+
+	public function forget_password()
+	{
+		$this->load->view('forget_password');
+	}
+
+	public function submit_forget()
+	{
+		$email = $_POST['email'];
+		$this->load->model('M_member');
+		$check_email = $this->M_member->check_email($email);
+
+		if($check_email < 1)
+		{
+			$this->session->set_flashdata('error', 'Email tidak terdaftar');
+		}
+		else
+		{
+			$hash_email = base64_encode($email);
+			$flag = 2;
+			$send_mail = $this->sendMail($email, $hash_email, $flag);
+			if ($send_mail == 'OK')
+			{
+				$this->session->set_flashdata('error', 'Sukses Mengirimkan Link Reset Password');
+			}
+			else{
+				$this->session->set_flashdata('error', 'Terjadi kesalahan saat mengirimkan link ke email anda.');
+			}
+
+		}
+
+		redirect('member/forget_password');
+	}
+
+	public function change_password($email='')
+	{
+		$data['email'] = $email;
+		$this->load->view('change_password',$data);
+	}
+
+	public function submit_change()
+	{
+		$email = $_POST['email'];
+		$email = base64_decode($email);
+		$password = $_POST['password'];
+		$password = md5($password);
+
+		$this->load->model('M_member');
+		$check_email = $this->M_member->change_password($email, $password);
+
+		$this->session->set_flashdata('error', 'Berhasil Merubah Password dan silahkan Login Kembali menggunakan password baru anda');
+		redirect('member/change_password');
 	}
 
 }

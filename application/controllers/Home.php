@@ -42,4 +42,9 @@ class Home extends CI_Controller {
 		$data['events'] = $queryRecords;
 		$this->load->view('list_event', $data);
 	}
+
+	public function shop_location()
+	{
+		$this->load->view('shop_location');
+	}
 }

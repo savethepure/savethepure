@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </td>
                     <td class="col-1">
                          <input type="hidden" name="rowid[]" value="<? echo $product['rowid'] ?>"> 
-                        <input style="width:50px;" type="number" name="qty[]" value="<? echo $product['qty'] ?>">
+                        <input style="width:50px;text-align: center;" type="number" name="qty[]" value="<? echo $product['qty'] ?>">
                     </td>
                     <td class="col-2">
                         IDR <? echo $product['qty'] * $product['price'] ?>

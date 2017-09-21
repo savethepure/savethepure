@@ -71,4 +71,13 @@ class M_member extends CI_Model {
 		return $queryRec;
 	}
 
+	public function change_password($email, $password)
+	{
+		$sql = "update user set password = ? where email = ?";
+
+        // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
+        $queryRec = $this->db->query($sql, array($password,$email));
+        return $queryRec;
+	}
+
 }
