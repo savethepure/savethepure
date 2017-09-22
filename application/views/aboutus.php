@@ -12,9 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	<img src="<?php echo base_url() ?>assets/img/aboutus.jpg" width="100%" alt="">
     </div>
 
-    <hr>
-        <h2 class="center mt1">About Us</h2>
-    <hr>
+    <h2 class="center">About Us</h2>
 	
 	<div class="col-6 mx-auto mt2 py2 px2">
 		<p class="justify">
