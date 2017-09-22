@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <title>Save The Pure | Cart</title>
 <div class="wrapper-container u-py3">
+<div class="content-wrapper" style="min-height: 600px;">
     <hr>
         <h2 class="center mt1">Shoping Cart</h2>
     <hr>
@@ -94,3 +95,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     </form>
 </div>
+</div>
+<?php include('static/footer.php'); ?>

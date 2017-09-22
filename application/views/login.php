@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <title>Save The Pure | Login</title>
 
-<div class="wrapper-container py3"> 
+<div class="wrapper-container py3" style="min-height: 600px;"> 
     <div class="login-container col-10 md-col-6 sm-col-8 mx-auto py20">
         <h3 class="mt0 mb2">Login</h3>
         <?php if($this->session->flashdata('error') == TRUE){ ?>  
@@ -38,3 +38,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </form>
     </div>
 </div>
+
+<?php include('static/footer.php'); ?>

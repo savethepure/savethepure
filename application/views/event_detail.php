@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="wrapper-container u-py3">
     <hr>
-    <h2 class="center mt1">Sense By Save the Pure</h2>
+    <h2 class="center mt1"><?php echo $events['title_event']; ?></h2>
     <hr>
 	
 	<div class="col-12 mb4 panel px1 py1" style="border: solid 2px #e0e0e0;">
@@ -17,10 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="col lg-col-7 md-col-7 sm-col-12 col-12">
 				<div class="col-12 px3">
-					<div class="clearfix col-12">
-						<h3><b><?php echo $events['title_event']; ?></b></h3>
-						<hr>
-					</div>
+					<br>
 					<div class="clearfix col-12">
 						<blockquote class="blockquote">
 						  <p class="mb-0"><?php echo $events['short_description']; ?></p>
@@ -36,6 +33,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 	<hr>
-	<p><?php echo $events['description']; ?></p>
+	<div class="px2">
+		<p class="mb4"><?php echo $events['description']; ?></p>
+	</div>
 
 </div>
+
+<?php include('static/footer.php'); ?>

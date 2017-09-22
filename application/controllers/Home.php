@@ -24,6 +24,12 @@ class Home extends CI_Controller {
 		$queryRecords = $this->Product->list_product();
 		$data['products'] = $queryRecords; 
 		
+		if (empty($queryRecords)) {
+			$this->load->model('M_events');
+			$queryRecordsEvent = $this->M_events->events();
+			$data['events'] = $queryRecordsEvent;
+		}
+
 		$this->load->view('home', $data);
 	}
 

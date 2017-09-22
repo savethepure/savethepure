@@ -93,3 +93,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php } ?>
 
 </div>
+<?php include('static/footer.php'); ?>

@@ -492,3 +492,41 @@ input::-webkit-inner-spin-button {
 	object-fit:cover;
 	transition: all .25s ease;
 }
+
+/*payment*/
+.text-red {
+	color: red;
+}
+
+
+.footer-cont {
+	background-color: #fff;
+    width: 500px;
+    height: 55px;
+    background: url('../img/bottom-black.png') no-repeat;
+    background-size: 500px 55px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+@media screen and (max-width: 550px) {
+    .footer-cont {
+        background-color: #fff;
+        width: 320px;
+        height: 55px;
+        background: url('../img/bottom-black.png') no-repeat;
+        background-size: 320px 55px;
+        margin: 0 auto;
+    }
+}
+
+.desc-footer {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.content-wrapper {
+	min-height: 500px;
+}

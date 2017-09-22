@@ -45,7 +45,11 @@ class Checkout extends CI_Controller {
             $data['data_kota'] = $data_kota;
             $data['data_provinsi'] = $data_provinsi;
 
-            $this->load->view('checkout', $data);
+            if (!empty($cart_list)) {
+            	$this->load->view('checkout', $data);
+            } else {
+            	redirect('cart');
+            }
         }
         else
         {

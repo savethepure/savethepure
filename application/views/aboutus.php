@@ -10,8 +10,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <hr>
         <h2 class="center mt1">About Us</h2>
     <hr>
-
-    <p class="center">
-        <?php echo $about; ?>
-    </p>
+	
+	<div class="content-wrapper px2">
+		<p class="center">
+	        <?php echo $about; ?>
+	    </p>
+	</div>
 </div>
+
+<?php include('static/footer.php'); ?>

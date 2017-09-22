@@ -1,10 +1,10 @@
 			<div class="wrapper-container">
 				<div class="header relative">
 						<div class="social-icon-wraps xs-hide">
-							<a href="<?php echo base_url() ?>shop-location" class="social-icon menu-link">
+							<!-- <a href="<?php echo base_url() ?>shop-location" class="social-icon menu-link"> -->
 								<!-- <i class="fa fa-twitter"></i> -->
-								Shop Location
-							</a>
+								<!-- Shop Location -->
+							<!-- </a> -->
 							<!-- <a href="" class="social-icon">
 								<i class="fa fa-facebook"></i>
 							</a>
@@ -23,7 +23,7 @@
 											<i class="fa fa-group"></i>
 										</a>
 										<a href="<?php echo base_url() ?>events" class="int-menu-icon" title="Event">
-											<i class="fa fa-rocket"></i>
+											<i class="fa fa-calendar"></i>
 										</a>
 										<a href="<?php echo base_url() ?>cart" class="int-menu-icon" title="Cart">
 											<i class="fa fa-shopping-cart">
@@ -78,10 +78,10 @@
 
 						<div class="mobile-menu-wraps md-hide lg-hide center">
 							<div class="icon-wraps mt1">
-								<a href="<?php echo base_url() ?>shop-location" class="icon-mobile menu-link mr3" >
+								<!-- <a href="<?php echo base_url() ?>shop-location" class="icon-mobile menu-link mr3" > -->
 									<!-- <i class="fa fa-twitter"></i> -->
-									Shop Location
-								</a>
+									<!-- Shop Location -->
+								<!-- </a> -->
 								<!-- <a href="" class="icon-mobile">
 									<i class="fa fa-facebook"></i>
 								</a>

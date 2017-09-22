@@ -165,15 +165,15 @@ class Member extends CI_Controller {
 		 if ($flag == 1) {
 			$msg = "<html>
                     <div style='width:100%;background:#252525;padding-top:20px;padding-bottom:20px;text-align:center;color:#fff;'>
-                        <div><h1>SaveThePure</h1></div>
+                        <div><img src='http://savethepure.com/assets/img/stp-black.png' width='70%'/></div>
                         <h1>Selamat, Pedaftaran anda telah berhasil</h1>
 						<h4>Klik Link <a href='".base_url()."member/verification/".$code."'>ini</a> untuk melakukan Verifikasi email anda.</h4>
                     </div>
                 </html>";		 	
 		 } else if ($flag == 2) {
 		 	$msg = "<html>
-                    <div style='width:100%;background:#252525;padding-top:20px;padding-bottom:20px;text-align:center;color:#fff;'>
-                        <div><h1>SaveThePure</h1></div>
+                    <div style='width:100%;background:#f8f8f8;padding-top:20px;padding-bottom:20px;text-align:center;color:#252525;'>
+                        <div><img src='http://savethepure.com/assets/img/stp-black.png' width='70%'/></div>
                         <h1>Reset Password</h1>
 						<h4>Klik Link <a href='".base_url()."member/change_password/".$code."'>ini</a> untuk melakukan reset password anda.</h4>
                     </div>

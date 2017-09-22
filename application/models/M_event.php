@@ -20,7 +20,7 @@ class M_event extends CI_Model {
 	 */
 	public function detail($name)
 	{
-		$sql = "select * from event where title_event = ?";
+		$sql = "select * from event where title_event = ? order by date desc";
 
         // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
         $queryRec = $this->db->query($sql,array($name) )->row_array();
