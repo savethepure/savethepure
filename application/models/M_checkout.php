@@ -30,9 +30,9 @@ class M_checkout extends CI_Model {
 
     public function check_order($uuid)
     {
-        $sql = "select total from `order` where uuid = ?";
+        $sql = "select total, id from `order` where uuid = ?";
         $queryRec = $this->db->query($sql, array($uuid))->row_array();
-        return $queryRec['total'];
+        return $queryRec;
     }
 
     public function completed ($uuid, $account_name)

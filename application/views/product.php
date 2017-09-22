@@ -144,7 +144,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="col col-2 px1">
 							<div class="quantity-control quantity-down">-</div>
 						</div>
-						<input class="col col-3 input-lg" type="number" id="quantity"
+						<input class="col col-3 input-lg center" type="number" id="quantity"
 						 min="0" name="quantity" value="1" min="0">
 						<div class="col col-2 px1">
 							<div class="quantity-control quantity-up">+</div>

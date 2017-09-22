@@ -185,7 +185,9 @@ class Checkout extends CI_Controller {
         }
         else{
             $this->load->model('M_checkout');
-            $data_order['total_amount'] = $this->M_checkout->check_order($uuid);
+            $q_order = $this->M_checkout->check_order($uuid);
+            $data_order['total_amount'] = $q_order['total'];
+            $data_order['id'] = $q_order['id'];
             $data_order['uuid'] = $uuid;
             $this->load->view('payment',$data_order);
         }

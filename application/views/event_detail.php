@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class="clearfix col-12">
 						<blockquote class="blockquote">
-						  <p class="mb-0"><?php echo $events['description']; ?></p>
+						  <p class="mb-0"><?php echo $events['short_description']; ?></p>
 						</blockquote>
 					</div>
 					<hr>
@@ -35,5 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 	</div>
+	<hr>
+	<p><?php echo $events['description']; ?></p>
 
 </div>
