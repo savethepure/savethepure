@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/vendor/loading/loading.css"/>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/vendor/loading/loading-btn.css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url()?>assets/img/favicon/favicon.png">
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
