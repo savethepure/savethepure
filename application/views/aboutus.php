@@ -7,16 +7,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <title>Save The Pure | About Us</title>
 <div class="wrapper-container u-py3" style="min-height: 600px;">
-    <hr>
-        <h2 class="center mt1">About Us</h2>
-    <hr>
 
     <div class="foto">
     	<img src="<?php echo base_url() ?>assets/img/aboutus.jpg" width="100%" alt="">
     </div>
+
+    <hr>
+        <h2 class="center mt1">About Us</h2>
+    <hr>
 	
 	<div class="col-6 mx-auto mt2 py2 px2">
-		<p class="center">
+		<p class="justify">
 	        <?php echo $about; ?>
 	    </p>
 	</div>
