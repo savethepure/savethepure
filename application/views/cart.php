@@ -85,7 +85,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <form method="post" action="<?php echo base_url() ?>checkout">
         <input type="hidden" name="refs" value="checkout">
         <div class="col-4 mx-auto center mt6">
-            <button class="btn btn-default bg-black btn-block">Proced to Checkout</button>
+        	<?php if (!empty($cart_list)) { ?>
+        		<button class="btn btn-default bg-black btn-block" >Proced to Checkout</button>
+        	<?php }else{ ?>
+				<button class="btn btn-default bg-black btn-block" disabled="disabled">Proced to Checkout</button>
+        	<?php } ?>
         </div>
 
     </form>
