@@ -6,12 +6,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php include('static/header.php'); ?>
 
 <title>Save The Pure | About Us</title>
-<div class="wrapper-container u-py3">
+<div class="wrapper-container u-py3" style="min-height: 600px;">
     <hr>
         <h2 class="center mt1">About Us</h2>
     <hr>
+
+    <div class="foto">
+    	<img src="<?php echo base_url() ?>assets/img/aboutus.jpg" width="100%" alt="">
+    </div>
 	
-	<div class="content-wrapper px2">
+	<div class="col-6 mx-auto mt2 py2 px2">
 		<p class="center">
 	        <?php echo $about; ?>
 	    </p>
