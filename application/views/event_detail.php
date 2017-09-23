@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<br>
 					<div class="clearfix col-12">
 						<blockquote class="blockquote">
-						  <p class="mb-0"><?php echo $events['short_description']; ?></p>
+						  <p class="mb-0 justify"><?php echo $events['short_description']; ?></p>
 						</blockquote>
 					</div>
 					<hr>
