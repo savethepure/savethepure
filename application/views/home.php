@@ -32,13 +32,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    <?php } else { ?>
 	    	<?php foreach ($events as $rows) { ?>
 
-		    <div class="row center">
+		    <!-- <div class="row center">
 		        <div class="product mb4 pb0 mx-auto">
 		            <a href="<?php echo base_url().'event/detail/'.str_replace(' ', '-', strtolower($rows['title_event'])); ?>">
 		                <img src="<?php echo base_url() ?>assets/img/events/<?php echo $rows['picture']; ?>" alt="">
 		            </a>
 		        </div>
-		    </div>
+		    </div> -->
 
 		    <?php } ?>
 
