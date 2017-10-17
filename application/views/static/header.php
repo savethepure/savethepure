@@ -5,12 +5,15 @@
 								<!-- <i class="fa fa-twitter"></i> -->
 								<!-- Shop Location -->
 							<!-- </a> -->
-							<!-- <a href="" class="social-icon">
+							<a href="" class="social-icon">
+								<i class="fa fa-youtube"></i>
+							</a>
+							<a href="" class="social-icon">
 								<i class="fa fa-facebook"></i>
 							</a>
 							<a href="" class="social-icon">
 								<i class="fa fa-instagram"></i>
-							</a> -->
+							</a>
 						</div>
 						
 						<div class="mx-auto">
@@ -22,8 +25,8 @@
 										<a href="<?php echo base_url() ?>about" class="int-menu-icon" title="About US">
 											<i class="fa fa-group"></i>
 										</a>
-										<a href="<?php echo base_url() ?>events" class="int-menu-icon" title="Event">
-											<i class="fa fa-calendar"></i>
+										<a href="<?php echo base_url() ?>events" class="int-menu-icon" title="News and Event">
+											<i class="fa fa-globe"></i>
 										</a>
 										<a href="<?php echo base_url() ?>cart" class="int-menu-icon" title="Cart">
 											<i class="fa fa-shopping-cart">
@@ -82,12 +85,15 @@
 									<!-- <i class="fa fa-twitter"></i> -->
 									<!-- Shop Location -->
 								<!-- </a> -->
-								<!-- <a href="" class="icon-mobile">
+								<a href="" class="icon-mobile">
+									<i class="fa fa-youtube"></i>
+								</a>
+								<a href="" class="icon-mobile">
 									<i class="fa fa-facebook"></i>
 								</a>
 								<a href="" class="icon-mobile">
 									<i class="fa fa-instagram"></i>
-								</a> -->
+								</a>
 
 								<?php
 								if ($this->session->userdata('login'))
