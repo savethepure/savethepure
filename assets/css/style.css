@@ -249,6 +249,18 @@ a {
     margin-top: 20px;
 }
 
+@media (max-width: 991px) {
+    .int-menu-icon i{
+	    color: #fff;
+	    font-size: 15px;
+	    padding-left:20px;
+	    padding-right: 20px;
+	    -webkit-transition: 0.9s;
+	    margin-top: 20px;
+	}
+
+}
+
 .int-menu-icon i:hover {
     color: gray;
 }

@@ -28,6 +28,9 @@
 										<a href="<?php echo base_url() ?>events" class="int-menu-icon" title="News and Event">
 											<i class="fa fa-globe"></i>
 										</a>
+										<a href="<?php echo base_url() ?>list_product" class="int-menu-icon" title="List Product">
+											<i class="fa fa-barcode"></i>
+										</a>
 										<a href="<?php echo base_url() ?>cart" class="int-menu-icon" title="Cart">
 											<i class="fa fa-shopping-cart">
 												<?php if ($this->cart->total_items() > 0) { ?>
