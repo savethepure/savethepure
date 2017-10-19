@@ -11,7 +11,7 @@
 							<a href="https://m.facebook.com/savethepure" class="social-icon">
 								<i class="fa fa-facebook"></i>
 							</a>
-							<a href="https://m.facebook.com/savethepure" class="social-icon">
+							<a href="https://www.instagram.com/savethepure/" class="social-icon">
 								<i class="fa fa-instagram"></i>
 							</a>
 						</div>
@@ -88,7 +88,7 @@
 									<!-- <i class="fa fa-twitter"></i> -->
 									<!-- Shop Location -->
 								<!-- </a> -->
-								<a href="https://m.facebook.com/savethepure" class="icon-mobile">
+								<a href="https://www.youtube.com/channel/UCf_TAPqAHOrxv2xEzJgmw-A" class="icon-mobile">
 									<i class="fa fa-youtube"></i>
 								</a>
 								<a href="https://m.facebook.com/savethepure" class="icon-mobile">
