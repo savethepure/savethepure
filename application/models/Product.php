@@ -49,5 +49,14 @@ class Product extends CI_Model {
         $queryRec = $this->db->query($sql,array($nama))->result_array();
         return $queryRec;
     }
+    public function product_color($nama='') {
+        $sql = "SELECT a.color
+                FROM product_color a left join products b 
+                on a.id_product = b.id 
+                WHERE b.product_name LIKE ?";
 
+        // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
+        $queryRec = $this->db->query($sql,array($nama))->result_array();
+        return $queryRec;
+    }
 }

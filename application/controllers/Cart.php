@@ -32,6 +32,7 @@ class Cart extends CI_Controller {
 		$id = $_POST['id'];
 		$qty = $_POST['qty'];
 		$size = $_POST['size'];
+		$color = $_POST['color'];
 
 		$this->load->model('M_cart');
         $product = $this->M_cart->get($id);
@@ -42,7 +43,8 @@ class Cart extends CI_Controller {
             'price'   => $product->price,
             'name'    => $product->product_name,
 			'picture' => $product->picture,
-			'size'	  => $size
+			'size'	  => $size,
+			'color'	  => $color
         );
         $this->cart->insert($data);
 

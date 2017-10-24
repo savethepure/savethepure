@@ -9,20 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="wrapper-container u-py3"> 
     <div class="product-list py20">
-		<div class="row center banner-trailer">
-			<div class="product mx-auto">
-				<a href="<?php echo base_url().'last_event'; ?>">
-					<img src="<?php echo base_url() ?>assets/img/events/last_event1.jpg" alt="">
-				</a>
-			</div>
-		</div>
-		<div class="row center banner-trailer">
-			<div class="product mx-auto">
-				<a href="<?php echo base_url().'trailer'; ?>">
-					<img src="<?php echo base_url() ?>assets/img/events/trailer_banner.jpg" alt="">
-				</a>
-			</div>
-		</div>
     	<?php if (!empty($products)) { ?>
 
 	        <?php foreach ($products as $rows) { ?>
@@ -50,6 +36,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    <?php } ?>
 
 	    <?php } ?>
+	    <div class="row center banner-trailer">
+			<div class="product mx-auto">
+				<a href="<?php echo base_url().'last_event'; ?>">
+					<img src="<?php echo base_url() ?>assets/img/events/last_event1.png" alt="">
+				</a>
+			</div>
+		</div>
+		<div class="row center banner-trailer">
+			<div class="product mx-auto">
+				<a href="<?php echo base_url().'trailer'; ?>">
+					<img src="<?php echo base_url() ?>assets/img/events/trailer_banner.png" alt="">
+				</a>
+			</div>
+		</div>
     </div>
 </div>
 

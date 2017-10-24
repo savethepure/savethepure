@@ -41,7 +41,9 @@ class Checkout extends CI_Controller {
 
         if($this->session->userdata('login'))
         {
+
             $data['cart_list'] = $this->cart->contents();
+            $cart_list = $this->cart->contents();
             $data['data_kota'] = $data_kota;
             $data['data_provinsi'] = $data_provinsi;
 
@@ -174,7 +176,7 @@ class Checkout extends CI_Controller {
         $cart_list = $this->cart->contents();
         foreach($cart_list as $product)
         {
-            $query = $this->M_checkout->detail_order($uuid, $product['id'], $product['name'], $product['qty'], $product['price'], $product['size']);
+            $query = $this->M_checkout->detail_order($uuid, $product['id'], $product['name'], $product['qty'], $product['price'], $product['size'],$product['color']);
         }
 
         $this->cart->destroy();

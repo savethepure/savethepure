@@ -19,6 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <th class="xs-hide sm-hide">&nbsp;</th>
                 <th>Product Name</th>
                 <th>Size</th>
+                <th>Color</th>
                 <th>Unit Price</th>
                 <th>Qty</th>
                 <th>Subtotal</th>
@@ -34,12 +35,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <img src="<?php echo base_url() ?>assets/img/products/<? echo $product['picture'] ?>" style="max-width:100%;" alt="">
                         </div>
                     </td>
-                    <td class="col-5">
+                    <td class="col-4">
                         <h4><a href="<?php echo base_url().'product/'.str_replace(' ','-', $product['name']) ?>"><b><? echo $product['name'] ?></b></a></h4>
                         <span><a href="<?php echo base_url().'cart/remove/'.$product['rowid'] ?>">Remove Item</a></span>
                     </td>
                     <td class="col-1">
                         <? echo $product['size'] ?>
+                    </td>
+                    <td class="col-1">
+                        <? echo $product['color'] ?>
                     </td>
                     <td class="col-2">
                         IDR <? echo $product['price'] ?>

@@ -29,9 +29,11 @@ class Products extends CI_Controller {
         $this->load->model('Product');
 		$queryRecords = $this->Product->show_product($name);
 		$querySize = $this->Product->product_size($name);
+		$queryColor = $this->Product->product_color($name);
 
 		$data['products'] = $queryRecords;
 		$data['sizes'] = $querySize; 
+		$data['colors'] = $queryColor; 
 
 		$this->load->view('product', $data);
     }

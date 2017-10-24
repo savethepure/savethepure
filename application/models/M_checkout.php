@@ -45,14 +45,14 @@ class M_checkout extends CI_Model {
         return $queryRec1;
     }
 
-    public function detail_order($uuid,$id,$name,$qty,$price,$size)
+    public function detail_order($uuid,$id,$name,$qty,$price,$size,$color)
 	{
         
-		$sql = "INSERT INTO `detail_order`(`id`, `order_id`, `product_id`, `product_name`, `qty`, `price`, `size`) 
-        values (null,?,?,?,?,?,?)";
+		$sql = "INSERT INTO `detail_order`(`id`, `order_id`, `product_id`, `product_name`, `qty`, `price`, `size`, `color`) 
+        values (null,?,?,?,?,?,?,?)";
 
         // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
-        $queryRec = $this->db->query($sql, array($uuid,$id,$name,$qty,$price,$size));
+        $queryRec = $this->db->query($sql, array($uuid,$id,$name,$qty,$price,$size,$color));
         return $queryRec;
 	}
 }

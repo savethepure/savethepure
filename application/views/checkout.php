@@ -6,22 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <title>Save The Pure | Home</title>
 
-<!-- <select class="selectpicker" data-live-search="true">
-    
-  <?php
-    // for ($i=0; $i < count($data_kota['rajaongkir']['results']); $i++) {
-  ?>
-
-    <option value="<?php echo $data_kota['rajaongkir']['results'][$i]['city_id']; ?>">
-      <?php echo $data_kota['rajaongkir']['results'][$i]['city_name']; ?>
-    </option>
-
-  <?php    
-    // }
-  ?>
-
-</select> -->
-
 <div class="wrapper-container py2">
   <hr>
     <h3 class="center">Checkout</h3>
@@ -185,5 +169,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
   }
 </script>
-
+<!-- 
 <?php include('static/footer.php'); ?>
+ -->
