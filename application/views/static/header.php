@@ -23,12 +23,12 @@
 											<i class="fa fa-home"></i>
 										</a>
 										<a href="<?php echo base_url() ?>about" class="int-menu-icon" title="About US">
-											<i class="fa fa-group"></i>
+											<i class="fa fa-group" style="font-size:21px;"></i>
 										</a>
 										<a href="<?php echo base_url() ?>events" class="int-menu-icon" title="News and Event">
 											<i class="fa fa-globe"></i>
 										</a>
-										<a href="<?php echo base_url() ?>list_product" class="int-menu-icon" title="List Product">
+										<a href="<?php echo base_url() ?>list_product" class="int-menu-icon" title="Product">
 											<i class="fa fa-barcode"></i>
 										</a>
 										<a href="<?php echo base_url() ?>cart" class="int-menu-icon" title="Cart">

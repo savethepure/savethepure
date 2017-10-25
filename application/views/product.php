@@ -8,7 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/magnific-popup.css">
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/icofont.css">
-<script src="<?php echo base_url() ?>assets/vendor/slick/slick.min.js"></script>
 <style>
 
 	.card {
@@ -228,15 +227,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="wrapper-container py2 product-div animated fadeInLeft"> 
 	<div class="box-product px1">
 		<div class="title-product center py1 col-12">
-			<h2><?php echo $product_name; ?></h2>
+			<h2><?php echo str_replace(' ', '-', $product_name); ?></h2>
 		</div>
 		<div class="body-product col-12 overflow-hidden">
-			<div class="col col-12 md-col-6 sm-col-12 lg-col-6 px1 py1 b-product-picture center">
-				<img src="<?php echo base_url() ?>assets/img/products/<?php echo $picture; ?>" alt="">
+			<div class="col col-12 md-col-6 sm-col-12 lg-col-6 px1 py1 b-product-picture center overflow-hidden">
+				<div class="products-photo">
+					<?php foreach ($photos as $rows) { ?>
+						<img src="<?php echo base_url() ?>assets/img/products/<?php echo $rows['url']; ?>" alt="">
+					<?php } ?>
+				</div>
 			</div>
 			<div class="col col-12 md-col-6 sm-col-12 lg-col-6 b-product-desc">
 				<div class="price col-12 py1 px1">
-					<h5>Price : IDR <?php echo $price; ?></h5> 
+					<h5>Price : IDR <span id="price"><?php echo $price; ?></span></h5> 
 				</div>
 				<hr class="mt0 mb0">
 				<div class="size col-12 py1 px1">
@@ -339,12 +342,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="snackbar"><?php echo $product_name; ?> successfully added. <a href="<?php echo base_url() ?>cart">View cart</a></div>
 <div id="snackbar_size">Please Choose Size...</a></div>
 <script src="<?php echo base_url() ?>assets/vendor/jquery/jquery.js"></script>
+<script src="<?php echo base_url() ?>assets/vendor/slick/slick.min.js"></script>
 <script>
+	$('.products-photo').slick({
+        arrows: false,
+        dots: true,
+        cssEase: 'ease',
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        infinite: true,
+        responsive: [{
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }, {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
 	function buy()
 	{
 		$('.product-div').removeClass('hidden');
 		$('.profile-div').addClass('hidden');
 	}
+
+	$('#price').html(formatCurrency(<?php echo $price ?>));
+
+	function formatCurrency (num) {
+	    let newnum = num ? num.toString() : '0';
+	    let i = newnum.length - 3;
+	    while (i > 0) {
+	      newnum = newnum.substr(0, i) + '.' + newnum.substr(i);
+	      i -= 3;
+	    }
+	    return newnum;
+  	}
 </script>
 <script>
 	
@@ -435,6 +476,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             enabled: true
         }
     });
+
 
 </script>
 

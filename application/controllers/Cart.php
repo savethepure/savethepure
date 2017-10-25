@@ -41,7 +41,7 @@ class Cart extends CI_Controller {
             'id'      => $product->id,
             'qty'     => $qty,
             'price'   => $product->price,
-            'name'    => $product->product_name,
+            'name'    => str_replace(' ', '-', $product->product_name),
 			'picture' => $product->picture,
 			'size'	  => $size,
 			'color'	  => $color

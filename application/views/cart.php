@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php } ?>
                 <tr>
                     <td class="col-1 xs-hide sm-hide">&nbsp;</td>
-                    <td colspan="4"><b>Grand Total</b></td>
+                    <td colspan="5"><b>Grand Total</b></td>
                     <td class="number"><b>IDR <?= $this->cart->total(); ?></b></td>
                 </tr> 
             <?php } else { ?>
@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </form>
     <form method="post" action="<?php echo base_url() ?>checkout">
         <input type="hidden" name="refs" value="checkout">
-        <div class="col-4 mx-auto center mt6">
+        <div class="col-6 mx-auto center mt6">
         	<?php if (!empty($cart_list)) { ?>
         		<button class="btn btn-default bg-black btn-block" >Proced to Checkout</button>
         	<?php }else{ ?>

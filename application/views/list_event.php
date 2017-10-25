@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php include('static/header.php'); ?>
 
 
-<title>Save The Pure | Event</title>
+<title>Save The Pure | News & Event</title>
 
 <style>
 
@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="wrapper-container u-py3">
     <hr>
-    <h2 class="center mt1">Our Event</h2>
+    <h2 class="center mt1">News & Event</h2>
     <hr>
 
     <?php foreach ($events as $rows) { ?>
