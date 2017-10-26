@@ -128,7 +128,15 @@ a {
     .logo img {
         width: 300px;
     }
+
 }
+
+@media (min-width: 991px) {
+	.about_icon--menu {
+		font-size: 21px !important;
+	}
+}
+
 
 .social-icon-wraps {
     position: absolute;

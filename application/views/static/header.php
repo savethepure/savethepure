@@ -23,7 +23,7 @@
 											<i class="fa fa-home"></i>
 										</a>
 										<a href="<?php echo base_url() ?>about" class="int-menu-icon" title="About US">
-											<i class="fa fa-group" style="font-size:21px;"></i>
+											<i class="fa fa-group about_icon--menu"></i>
 										</a>
 										<a href="<?php echo base_url() ?>events" class="int-menu-icon" title="News and Event">
 											<i class="fa fa-globe"></i>
