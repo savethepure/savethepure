@@ -16,14 +16,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="panel panel-stp px3 py1">
                 <img src="<?php echo base_url() ?>assets/img/logo/bca.png" alt="logo bca" width="32px">
                 <hr>
-                <p>Account Number : 123-123-123</p>
-                <p>Account Name : Save the Pure</p>
+                <p>Account Number : 5005186525</p>
+                <p>Account Name : Nadya Arina</p>
                 <p>Sub Total: IDR <?php echo $total_amount; ?></p>
                 <p>Unique Transfer Code : <?php echo $id; ?></p>
                 <p><b>Transfer Total: IDR <?php echo $total_amount+$id; ?></b></p>
                 <small class="text-red"><i>*please transfer with the same value of transfer total</i></small>
             </div>
-            <div class="panel panel-stp px3 py1">
+            <!-- <div class="panel panel-stp px3 py1">
                 <img src="<?php echo base_url() ?>assets/img/logo/bri.png" alt="logo bca" width="32px">
                 <hr>
                 <p>Account Number : 123-123-123</p>
@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <p>Unique Transfer Code : <?php echo $id; ?></p>
                 <p><b>Transfer Total: IDR <?php echo $total_amount+$id; ?></b></p>
                 <small class="text-red"><i>*please transfer with the same value of transfer total</i></small>
-            </div>
+            </div> -->
             <div class="panel panel-stp px3 py1">
                 <form action="<?php echo base_url() ?>checkout/completed_payment" method="post">
                     <p class="center fs-12"><i>if you complete the payment please field this form :</i></p>
