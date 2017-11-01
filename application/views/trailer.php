@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <h2 class="center">Trailer</h2>
 	
-	<div class="col-6 mx-auto mt2 py2 px2">
+	<div class="col-10 mx-auto mt2 py2 px2">
 		<p class="justify">
 	        We present you a brief tease of the hidden struggles beneath the city. We have approached worthy
             candidates in the city with the intention to lend a hand, and the short clip will give an overview of the process. 

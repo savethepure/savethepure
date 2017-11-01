@@ -5,13 +5,13 @@
 								<!-- <i class="fa fa-twitter"></i> -->
 								<!-- Shop Location -->
 							<!-- </a> -->
-							<a href="https://www.youtube.com/channel/UCf_TAPqAHOrxv2xEzJgmw-A" class="social-icon">
+							<a href="https://www.youtube.com/channel/UCf_TAPqAHOrxv2xEzJgmw-A" class="social-icon" target="_blank">
 								<i class="fa fa-youtube"></i>
 							</a>
-							<a href="https://m.facebook.com/savethepure" class="social-icon">
+							<a href="https://www.facebook.com/savethepure" class="social-icon" target="_blank">
 								<i class="fa fa-facebook"></i>
 							</a>
-							<a href="https://www.instagram.com/savethepure/" class="social-icon">
+							<a href="https://www.instagram.com/savethepure/" class="social-icon" target="_blank">
 								<i class="fa fa-instagram"></i>
 							</a>
 						</div>

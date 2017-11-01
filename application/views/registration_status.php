@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="wrapper-container py3"> 
     <div class="login-container col-10 md-col-10 sm-col-8 mx-auto py20">
-        <h3 class="mt0 mb2">Registration Success</h3>
-        <h5>your registration is Successfully, please check your email to veriication your account.</h5>
+        <h3 class="mt0 mb2" align="center">Registration Succeed</h3>
+        <h5 align="center">your registration is succeed, in order to login, please check your email to verified your account.</h5>
     </div>
 </div>

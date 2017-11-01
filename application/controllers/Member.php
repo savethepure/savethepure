@@ -52,7 +52,7 @@ class Member extends CI_Controller {
 
 		if (!$data_login)
 		{
-			$this->session->set_flashdata('error', 'Email atau Password anda salah');
+			$this->session->set_flashdata('error', 'Wrong Email or Password or You have not verified your email');
 			redirect('member/login');	 
 		}
 		else
@@ -92,7 +92,7 @@ class Member extends CI_Controller {
 		
 		if($check_email >= 1)
 		{
-			$this->session->set_flashdata('error', 'Email sudah terdaftar');
+			$this->session->set_flashdata('error', 'Email Registered');
 		}
 		else{
 			$code = base64_encode(date("h:i:sa"));
@@ -106,12 +106,12 @@ class Member extends CI_Controller {
 					redirect('member/registration_success');
 				}
 				else{
-					$this->session->set_flashdata('error', 'Terjadi kesalahan saat medaftarkan akun anda.');
+					$this->session->set_flashdata('error', 'Something wrong while registering your account.');
 				}
 			}
 			else
 			{
-				$this->session->set_flashdata('error', 'Terjadi kesalahan saat medaftarkan akun anda.');
+				$this->session->set_flashdata('error', 'Something wrong while registering your account.');
 			}
 		}
 
@@ -166,8 +166,8 @@ class Member extends CI_Controller {
 			$msg = "<html>
                     <div style='width:100%;background:#252525;padding-top:20px;padding-bottom:20px;text-align:center;color:#fff;'>
                         <div><img src='http://savethepure.com/assets/img/stp-black.png' width='70%'/></div>
-                        <h1>Selamat, Pedaftaran anda telah berhasil</h1>
-						<h4>Klik Link <a href='".base_url()."member/verification/".$code."'>ini</a> untuk melakukan Verifikasi email anda.</h4>
+                        <h1>Congratulation, One more step to complete your registration</h1>
+						<h4>Click this <a href='".base_url()."member/verification/".$code."'>Link</a>to verify your email.</h4>
                     </div>
                 </html>";		 	
 		 } else if ($flag == 2) {
@@ -175,7 +175,7 @@ class Member extends CI_Controller {
                     <div style='width:100%;background:#f8f8f8;padding-top:20px;padding-bottom:20px;text-align:center;color:#252525;'>
                         <div><img src='http://savethepure.com/assets/img/stp-black.png' width='70%'/></div>
                         <h1>Reset Password</h1>
-						<h4>Klik Link <a href='".base_url()."member/change_password/".$code."'>ini</a> untuk melakukan reset password anda.</h4>
+						<h4>click this <a href='".base_url()."member/change_password/".$code."'>link</a> to reset your password.</h4>
                     </div>
                 </html>";
 		 }
@@ -184,9 +184,9 @@ class Member extends CI_Controller {
 		   $this->load->library('email', $config);
 		   $this->email->set_newline("\r\n");
 		   if ($flag == 1) {
-		     	$this->email->from('admin@savethepure.com', 'Pendaftaran Save the Pure'); // change it to yours
+		     	$this->email->from('admin@savethepure.com', 'Registration Save the Pure'); // change it to yours
 			   $this->email->to($email);// change it to yours
-			   $this->email->subject('Pendaftaran Berhasil');
+			   $this->email->subject('Registration Succeed');
 		  	} else if ($flag == 2){
 				$this->email->from('admin@savethepure.com', 'Reset Password Save the Pure'); // change it to yours
 				$this->email->to($email);// change it to yours
@@ -203,7 +203,7 @@ class Member extends CI_Controller {
 			return 'FAIL';
 		 }
 
-         echo "Registrasi Berhasil";
+         echo "Registration Succeed";
 
 	}
 
@@ -229,7 +229,7 @@ class Member extends CI_Controller {
 
 		if($check_email < 1)
 		{
-			$this->session->set_flashdata('error', 'Email tidak terdaftar');
+			$this->session->set_flashdata('error', 'Email is not registered');
 		}
 		else
 		{
@@ -238,10 +238,10 @@ class Member extends CI_Controller {
 			$send_mail = $this->sendMail($email, $hash_email, $flag);
 			if ($send_mail == 'OK')
 			{
-				$this->session->set_flashdata('error', 'Sukses Mengirimkan Link Reset Password');
+				$this->session->set_flashdata('error', 'Link to Reset your Password has been sent');
 			}
 			else{
-				$this->session->set_flashdata('error', 'Terjadi kesalahan saat mengirimkan link ke email anda.');
+				$this->session->set_flashdata('error', 'Something wrong happened while sending the link to reset your password.');
 			}
 
 		}
@@ -265,7 +265,7 @@ class Member extends CI_Controller {
 		$this->load->model('M_member');
 		$check_email = $this->M_member->change_password($email, $password);
 
-		$this->session->set_flashdata('error', 'Berhasil Merubah Password dan silahkan Login Kembali menggunakan password baru anda');
+		$this->session->set_flashdata('error', 'Reset password succeed please login with your new password');
 		redirect('member/change_password');
 	}
 

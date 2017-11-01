@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <h2 class="center">About Us</h2>
 	
-	<div class="col-12 mx-auto mt2 py2 px2">
+	<div class="col-10 mx-auto mt2 py2 px2">
 		<p class="justify">
 	        <?php echo $about; ?>
 	    </p>
