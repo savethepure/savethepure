@@ -167,7 +167,7 @@ class Member extends CI_Controller {
                     <div style='width:100%;background:#252525;padding-top:20px;padding-bottom:20px;text-align:center;color:#fff;'>
                         <div><img src='http://savethepure.com/assets/img/stp-black.png' width='70%'/></div>
                         <h1>Congratulation, One more step to complete your registration</h1>
-						<h4>Click this <a href='".base_url()."member/verification/".$code."'>Link</a>to verify your email.</h4>
+						<h4>Click this <a href='".base_url()."member/verification/".$code."'>Link</a> to verify your email.</h4>
                     </div>
                 </html>";		 	
 		 } else if ($flag == 2) {
