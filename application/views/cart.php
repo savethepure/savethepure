@@ -63,12 +63,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td colspan="5"><b>Grand Total</b></td>
                     <td class="number"><b>IDR <?= $this->cart->total(); ?></b></td>
                 </tr> 
-            <?php  else { ?>
+            <?php } else { ?>
                 
                 <tr class="center">
                     <td colspan="6">
-                        <h3 text-align = "center">Cart is empty</h3>
-                        <a text-align = "center" href="<?php echo base_url() ?>" class="btn btn-default mt3">Continue Shopping</a>
+                        <h3>Cart is empty</h3>
+                        <a href="<?php echo base_url() ?>" class="btn btn-default mt3">Continue Shopping</a>
                     </td>
                 </tr>
 
