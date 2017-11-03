@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php } else { ?>
                 
                 <tr class="center">
-                    <td colspan="6">
+                    <td colspan="7">
                         <h3>Cart is empty</h3>
                         <a href="<?php echo base_url() ?>" class="btn btn-default mt3">Continue Shopping</a>
                     </td>
