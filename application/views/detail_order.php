@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Detail Order</title>
 	<?php include('static/helmet.php'); ?>
 	 <link href="<?php echo base_url() ?>assets/see_order_assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -12,35 +12,45 @@
 			<div class="panel panel-default card-view">
 				<div class="panel-heading">
 					<div class="pull-left">
-						<h6 class="panel-title txt-dark">Basic Table</h6>
+						<h6 class="panel-title txt-dark">Detail Order</h6>
 						<table>
 							<tr>
 								<td><h6>Order ID</h6></td>
-								<td>&nbsp;</td>
-								<td><h6>2734872834</h6></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td><h6><?php echo $head_order['uuid'] ?></h6></td>
 							</tr>
 							<tr>
 								<td><h6>User ID</h6></td>
-								<td>&nbsp;</td>
-								<td><h6>2734872834</h6></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td><h6><?php echo $head_order['id_user'] ?></h6></td>
 							</tr>
 							<tr>
 								<td><h6>User Name</h6></td>
-								<td>&nbsp;</td>
-								<td><h6>2734872834</h6></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td><h6><?php echo $head_order['fullname'] ?></h6></td>
 							</tr>
 							<tr>
 								<td><h6>Receiver Name </h6></td>
-								<td>&nbsp;</td>
-								<td><h6>2734872834</h6></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td><h6><?php echo $head_order['nama_penerima'] ?></h6></td>
 							</tr>
 							<tr>
 								<td><h6>Shipment Address</h6></td>
-								<td>&nbsp;</td>
-								<td><h6>2734872834</h6></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td><h6><?php echo $head_order['address'] ?></h6></td>
+							</tr>
+							<tr>
+								<td><h6>Account Name</h6></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td><h6><?php echo $head_order['nama_rekening_pengirim'] ?></h6></td>
 							</tr>
 							
 						</table>
+						<div class="col-md-4">
+							<a href="<?php echo base_url() ?>see_order/change_status/<?php echo $head_order['uuid'] ?>">
+								<button class="btn btn-info">Verifikasi</button>
+							</a>
+						</div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -59,18 +69,18 @@
 									  </tr>
 									</thead>
 									<tbody>
+									<?php $i = 1; ?>
+							  		<?php foreach ($orders as $rows) { ?>
 									  <tr>
-										<td>1</td>
-										<td>Product Name</td>
-										<td>Jens</td>
-										<td>Brincker</td>
-										<td>Brincker123</td>
-										<td>310000</td>
-										<td class="form-group mb-0">
-											<button type="submit" class="btn btn-info ">Detail</button>
-										</td>			
+										<td><?php echo $i++; ?></td>
+										<td><?php echo $rows['product_name']; ?></td>
+										<td><?php echo $rows['color']; ?></td>
+										<td><?php echo $rows['size']; ?></td>
+										<td><?php echo $rows['qty']; ?></td>
+										<td><?php echo $rows['price']; ?></td>		
 									  </tr>
-								
+									 <?php $i++; ?>
+									<?php } ?>
 									</tbody>
 								</table>
 							</div>

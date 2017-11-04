@@ -43,7 +43,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <span class="label label-primary" data-toggle="tooltip" data-placement="bottom" title="your payment is being verified by our team">Verification</span>
                                 <?php } else if($order['status_pembayaran'] == 2){ ?>
                                     <span class="label label-success">Done</span>
-                                <?php } ?>
+                                <?php } else if($order['status_pembayaran'] == 3){ ?>
+									<span class="label label-success"></span
+								<?php } ?>
                             </td>      
                         </tr>
 

@@ -20,11 +20,28 @@ class See_order extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('see_order');
+		$this->load->model('M_see_order');
+		$queryRecords = $this->M_see_order->get_order();
+		$data['orders'] = $queryRecords;
+		$this->load->view('see_order', $data);
 	}
 
 	public function detail_order ()
 	{
-		$this->load->view('detail_order');	
+		$this->load->model('M_see_order');
+		$uuid = $this->uri->segment('3');
+		$queryRecords = $this->M_see_order->detail_order($uuid);
+		$queryOrder = $this->M_see_order->head_order($uuid);
+		$data['orders'] = $queryRecords;
+		$data['head_order'] = $queryOrder;
+		$this->load->view('detail_order', $data);
+	}
+
+	public function change_status () 
+	{
+		$uuid = $this->uri->segment('3');
+		$this->load->model('M_see_order');
+		$queryRecords = $this->M_see_order->change_status($uuid);
+		redirect('see_order');
 	}
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>See Order</title>
 	<?php include('static/helmet.php'); ?>
 	 <link href="<?php echo base_url() ?>assets/see_order_assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -11,8 +11,8 @@
 		<div class="col-sm-12">
 			<div class="panel panel-default card-view">
 				<div class="panel-heading">
-					<div class="pull-left">
-						<h6 class="panel-title txt-dark">Basic Table</h6>
+					<div>
+						<h6 class="panel-title txt-dark" style='text-align: center;'>Order List</h6>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -24,21 +24,24 @@
 										<th>#</th>
 										<th>Order ID</th>
 										<th>Name</th>
-										<th>Qty</th>
+										<th>Total Price</th>
 									
 									  </tr>
 									</thead>
 									<tbody>
+									<?php $i = 1; ?>
+									<?php foreach ($orders as $rows) { ?>
 									  <tr>
-										<td>1</td>
-										<td>Jens</td>
-										<td>Brincker</td>
-										<td>Brincker123</td>
+										<td><?php echo $i; ?></td>
+										<td><?php echo $rows['uuid']; ?></td>
+										<td><?php echo $rows['nama_penerima']; ?></td>
+										<td><?php echo $rows['total']; ?></td>
 										<td class="form-group mb-0">
-											<button type="submit" class="btn btn-info ">Detail</button>
+											<a href="<?php echo base_url() ?>see_order/detail_order/<?php echo $rows['uuid']; ?>"><button type="submit" class="btn btn-info">Detail</button></a>
 										</td>			
 									  </tr>
-								
+									  <?php $i++; ?>
+									<?php } ?>
 									</tbody>
 								</table>
 							</div>
