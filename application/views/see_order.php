@@ -25,7 +25,8 @@
 										<th>Order ID</th>
 										<th>Name</th>
 										<th>Total Price</th>
-									
+										<th>Tanggal</th>
+										<th></th>
 									  </tr>
 									</thead>
 									<tbody>
@@ -36,6 +37,7 @@
 										<td><?php echo $rows['uuid']; ?></td>
 										<td><?php echo $rows['nama_penerima']; ?></td>
 										<td><?php echo $rows['total']; ?></td>
+										<td><?php echo $rows['tanggal']; ?></td>
 										<td class="form-group mb-0">
 											<a href="<?php echo base_url() ?>see_order/detail_order/<?php echo $rows['uuid']; ?>"><button type="submit" class="btn btn-info">Detail</button></a>
 										</td>			
