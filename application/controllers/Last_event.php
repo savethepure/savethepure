@@ -22,5 +22,5 @@ class Last_event extends CI_Controller {
 	{
 		$this->load->view('last_event');
 	}
-
+	
 }
