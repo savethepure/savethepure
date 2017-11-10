@@ -20,7 +20,7 @@ class Logout extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->session->unset_userdata('login');
+		$this->session->unset_userdata('login_admin');
 		redirect('login');
 	}
 

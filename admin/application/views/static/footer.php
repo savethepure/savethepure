@@ -47,6 +47,9 @@
 
     <script src="<?php echo base_url() ?>assets/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
 
+    <!-- Dropzone.js -->
+    <script src="<?php echo base_url() ?>assets/vendors/dropzone/dist/min/dropzone.min.js"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url() ?>assets/build/js/custom.min.js"></script>
 	

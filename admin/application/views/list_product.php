@@ -30,12 +30,13 @@
               <div class="col-md-55">
                 <div class="thumbnail">
                   <div class="image view view-first">
-                    <img style="width: 100%; display: block;" src="<?php echo base_url() ?>assets/img/products/<?php echo $rows['picture']; ?>" alt="image" />
+                    <img style="width: 100%; display: block;" src="<?php echo UPLOAD_PRODUCT_URL ?>assets/img/products/<?php echo $rows['picture']; ?>" alt="image" />
                     <div class="mask">
                       <p><?php echo $rows['timestamp']; ?></p>
                       <div class="tools tools-bottom">
                         <a href="<?php echo base_url().'products/edit/'.$rows['id']; ?>"><i class="fa fa-pencil"></i></a>
                         <a href="<?php echo base_url().'products/delete/'.$rows['id']; ?>"><i class="fa fa-times"></i></a>
+                        <a href="<?php echo base_url().'products/add_photo/'.$rows['id']; ?>"><i class="fa fa-camera"></i></a>
                       </div>
                     </div>
                   </div>

@@ -18,23 +18,18 @@
                 <input type="password" class="form-control" name="password" placeholder="Password" required="" />
               </div>
               <div>
-                <button class="btn btn-default submit" href="index.html">Log in</button>
-                <a class="reset_pass" href="#">Lost your password?</a>
+                <button class="btn btn-default submit">Log in</button>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">New to site?
-                  <a href="#signup" class="to_register"> Create Account </a>
-                </p>
-
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <h1>Savethepure</h1>
+                  <p>©2016 All Rights Reserved. Savethepure</p>
         </div>
                 </div>
               </div>
@@ -79,4 +74,3 @@
       </div>
     </div>
 
-<?php include('static/footer.php'); ?>

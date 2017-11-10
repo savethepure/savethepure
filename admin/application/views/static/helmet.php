@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>Save The Pure Admin </title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,6 +18,9 @@
     <!-- iCheck -->
     <link href="<?php echo base_url() ?>assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 	
+	<!-- Dropzone.js -->
+    <link href="<?php echo base_url() ?>assets/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+
     <!-- bootstrap-progressbar -->
     <link href="<?php echo base_url() ?>assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -27,6 +30,7 @@
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url() ?>assets/build/css/custom.min.css" rel="stylesheet">
+
   </head>
 
   <body class="nav-md">
