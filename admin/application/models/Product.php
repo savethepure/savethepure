@@ -29,7 +29,7 @@ class Product extends CI_Model {
 
     public function jumlah_user()
     {
-        $sql = "SELECT COUNT(*) as count FROM USER";
+        $sql = "SELECT COUNT(*) as count FROM `user`";
 
         // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
         $queryRec = $this->db->query($sql)->row_array();
