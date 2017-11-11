@@ -36,6 +36,14 @@
                         <i class="fa fa-barcode"></i> Kelola Produk
                       </a>
                   </li>
+                  <li><a href="<?php echo base_url() ?>events">
+                        <i class="fa fa-globe"></i> Kelola Event
+                      </a>
+                  </li>
+                  <li><a href="<?php echo base_url() ?>see_order">
+                        <i class="fa fa-dollar"></i> Lihat Order
+                      </a>
+                  </li>
                 </ul>
               </div>
 

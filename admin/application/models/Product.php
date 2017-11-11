@@ -115,7 +115,7 @@ class Product extends CI_Model {
     }
 
     public function add_product($nama_produk, $deskripsi, $harga, $photoBanner) {
-        $sql = "insert into products (`product_name`, `picture`, `desc`, `price`) values (?,?,?,?)";
+        $sql = "insert into products (`product_name`, `picture`, `desc`, `price`, `timestamp`) values (?,?,?,?,NOW())";
 
         $queryRec = $this->db->query($sql,array($nama_produk, $photoBanner, $deskripsi, $harga));
         return $queryRec;

@@ -12,9 +12,9 @@
       <div class="col-md-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2>Kelola Product</h2>
+            <h2>Kelola Event</h2>
             <ul class="nav navbar-right panel_toolbox">
-              <li><a href="<?php echo base_url() ?>products/add"><i class="fa fa-plus"></i> Tambah Product</a></li>
+              <li><a href="<?php echo base_url() ?>events/add"><i class="fa fa-plus"></i> Tambah Event</a></li>
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
             </ul>
@@ -24,25 +24,24 @@
 
             <div class="row">
 
-              <?php foreach ($products as $rows) { ?>
+              <?php foreach ($events as $rows) { ?>
               <!--start  -->
 
               <div class="col-md-55">
                 <div class="thumbnail">
                   <div class="image view view-first">
-                    <img style="width: 100%; display: block;" src="<?php echo UPLOAD_PRODUCT_URL ?>assets/img/products/<?php echo $rows['picture']; ?>" alt="image" />
+                    <img style="width: 100%; display: block;" src="<?php echo UPLOAD_PRODUCT_URL ?>assets/img/events/<?php echo $rows['picture']; ?>" alt="image" />
                     <div class="mask">
-                      <p><?php echo $rows['timestamp']; ?></p>
+                      <p><?php echo $rows['date']; ?></p>
                       <div class="tools tools-bottom">
-                        <!-- <a href="<?php echo base_url().'products/edit/'.$rows['id']; ?>"><i class="fa fa-pencil"></i></a> -->
-                        <a href="<?php echo base_url().'products/delete/'.$rows['id']; ?>"><i class="fa fa-times"></i></a>
-                        <a href="<?php echo base_url().'products/add_photo/'.$rows['id']; ?>"><i class="fa fa-camera"></i></a>
+                        <!-- <a href="<?php echo base_url().'events/edit/'.$rows['id']; ?>"><i class="fa fa-pencil"></i></a> -->
+                        <a href="<?php echo base_url().'events/delete/'.$rows['id']; ?>"><i class="fa fa-times"></i></a>
                       </div>
                     </div>
                   </div>
                   <div class="caption">
-                    <p><?php echo $rows['product_name']; ?></p>
-                    <p>Harga : <?php echo $rows['price']; ?></p>
+                    <p><?php echo $rows['title_event']; ?></p>
+                    <p>Lokasi : <?php echo strlen($rows['venue']) > 15 ? substr($rows['venue'],0,15)."..." : $rows['venue']; ?></p>
                   </div>
                 </div>
               </div>
