@@ -44,6 +44,10 @@
                         <i class="fa fa-dollar"></i> Lihat Order
                       </a>
                   </li>
+                  <li><a href="<?php echo base_url() ?>done_order">
+                        <i class="fa fa-check"></i> Lihat Order Selesai
+                      </a>
+                  </li>
                 </ul>
               </div>
 
