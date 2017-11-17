@@ -1,4 +1,10 @@
 ###################
+Save The Pure Project
+###################
+
+For the first time, when you pull this project into your local machine, dont forget to change the config base url to localhost/[foldername]
+
+###################
 What is CodeIgniter
 ###################
 
