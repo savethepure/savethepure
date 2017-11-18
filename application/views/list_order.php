@@ -19,12 +19,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <th>Total Payment</th>
                 <th>Shipping to</th>
                 <th>Payment Status</th>
+                <th>Invoice</th>
             </tr>
             </thead>
             <tbody>
                  <?php if (!empty($orders)) { ?>
                     <? foreach($orders as $order) { ?>
-
                         <tr>
                             <td><?php echo $order['tanggal'] ?></td>
                             <td><?php echo $order['item'] ?></td>
@@ -46,7 +46,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php } else if($order['status_pembayaran'] == 3){ ?>
 									<span class="label label-success"></span
 								<?php } ?>
-                            </td>      
+                            </td>
+                            <td>
+	                            <?php if ($order['invoice_url'] != NULL){ ?>
+                                <a href="<?php echo $order['invoice_url']; ?>"><span class="label label-primary">Invoice</span></a>
+                                <?php } ?>
+                            </td>
                         </tr>
 
                     <?php } ?>

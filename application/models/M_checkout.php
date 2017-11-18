@@ -30,7 +30,7 @@ class M_checkout extends CI_Model {
 
     public function check_order($uuid)
     {
-        $sql = "select total, id from `order` where uuid = ?";
+        $sql = "select * from `order` where uuid = ?";
         $queryRec = $this->db->query($sql, array($uuid))->row_array();
         return $queryRec;
     }
@@ -54,5 +54,28 @@ class M_checkout extends CI_Model {
         // $queryRec = $this->db->query($sql,array($tanggal,$jam,$daerah,$daerah));
         $queryRec = $this->db->query($sql, array($uuid,$id,$name,$qty,$price,$size,$color));
         return $queryRec;
+	}
+
+	public function get_one_order_detailed($uuid)
+	{
+		$sql = "select a.*, b.*, c.uuid as user_uuid, c.email, c.fullname from `order` a left join detail_order b on a.uuid = b.order_id 
+				left join user c on a.id_user = c.uuid
+				where a.uuid = ? ";
+		$queryRec = $this->db->query($sql, array($uuid))->row_array();
+		return $queryRec;
+	}
+
+	public function midtrans_pending($uuid, $data)
+	{
+		$fields = array();
+		foreach ($data as $key => $value){
+			$fields[] = "`$key` = "."'$value'";
+		}
+		$fields = implode( ', ', $fields);
+
+		$sql = "UPDATE `order` SET $fields WHERE uuid = ?";
+
+		$queryRec1 = $this->db->query($sql, array($uuid));
+		return $queryRec1;
 	}
 }
