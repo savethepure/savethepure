@@ -78,4 +78,11 @@ class M_checkout extends CI_Model {
 		$queryRec1 = $this->db->query($sql, array($uuid));
 		return $queryRec1;
 	}
+
+	public function update_order_id_on_detail($old, $new)
+	{
+		$sql = "update `detail_order` set order_id=? where order_id = ?";
+		$queryRec = $this->db->query($sql, array($new, $old));
+		return $queryRec;
+	}
 }

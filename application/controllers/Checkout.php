@@ -206,6 +206,7 @@ class Checkout extends CI_Controller {
             $data_order['already_process'] = $q_order['midtrans_id'] != NULL ? true : false;
             $data_order['order'] = $q_order;
             $data_order['uuid'] = $uuid;
+	        $data_order['expire'] = $this->config->item( 'midtrans_expire' );
             $data_order['snap_url'] = $snap_url;
 	        $data_order['client_key'] = $client_key;
             $this->load->view('payment',$data_order);
@@ -245,6 +246,7 @@ class Checkout extends CI_Controller {
 		    //	    $client_key = $this->config->item('midtrans_client_key');
 		    $server_key = $this->config->item( 'midtrans_server_key' );
 		    $available_payments = $this->config->item( 'midtrans_available_payments' );
+		    $expire = $this->config->item( 'midtrans_expire' );
 
 		    Veritrans_Config::$serverKey    = $server_key;
 		    Veritrans_Config::$isProduction = $is_production;
@@ -277,8 +279,8 @@ class Checkout extends CI_Controller {
 				    'email'      => $order['email'],
 			    ),
 			    'expiry'              => array(
-				    'unit'     => 'hour',
-				    'duration' => 8
+				    'unit'     => 'day',
+				    'duration' => $expire
 			    )
 		    );
 		    $snapToken   = Veritrans_Snap::getSnapToken( $transaction );

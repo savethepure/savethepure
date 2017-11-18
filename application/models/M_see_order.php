@@ -44,4 +44,11 @@ class M_see_order extends CI_Model {
 		$queryRec = $this->db->query($sql, array($uuid));
 		return $queryRec;
 	}
+
+	public function midtrans_change_status($uuid, $midtrans_id, $status)
+	{
+		$sql = "update `order` set status_pembayaran = ? where `uuid` = ? and `midtrans_id` = ?";
+		$queryRec = $this->db->query($sql, array($status, $uuid, $midtrans_id));
+		return $queryRec;
+	}
 }

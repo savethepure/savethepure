@@ -20,7 +20,7 @@ class M_see_order extends CI_Model {
 	 */
 	public function get_order()
 	{
-		$sql = "select * from `order` where status_pembayaran = 1";
+		$sql = "select * from `order` where status_pembayaran = 1 or status_pembayaran = 4";
 		$queryRec = $this->db->query($sql)->result_array();
 		return $queryRec;
 	}

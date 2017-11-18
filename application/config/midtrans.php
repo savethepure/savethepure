@@ -22,7 +22,10 @@ $config['midtrans_is_production'] = FALSE;
 $config['midtrans_merchant_id'] = 'M106397';
 $config['midtrans_client_key'] = 'VT-client-BIowa-0Gca8vlhzA';
 $config['midtrans_server_key'] = 'VT-server-cpfraZCXz1LWBsG7d20wrXZY';
+//Available Payment Method
 $config['midtrans_available_payments'] = array(
 	'credit_card',
 	'bank_transfer'
 );
+//Expire Transaction In Day Unit
+$config['midtrans_expire'] = 3;

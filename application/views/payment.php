@@ -28,6 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="center">
                 <button id="pay-button" class="btn btn-default bg-black" style="padding: 10px 30px">Pay Now!</button>
             </div>
+            <span style="color: red;">Please transfer full amount of the invoice within <?php echo $expire?> days. <br>Please check your email for payment instruction.</span>
 
         <?php }else{ ?>
             <h5>
@@ -42,6 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <p><b>Sub Total: IDR <?php echo $order['subtotal']?></b></p>
                 <p><b>Shipping cost: IDR <?php echo $order['shipping_cost']?></b></p>
                 <p><b>Grand Total: IDR <?php echo $total_amount?></b></p>
+                <p><b>Expire: <?php echo date('Y-m-d H:i:s', strtotime($order['tanggal'] . ' +3 day'));?></b></p>
             </div>
             <div class="center">
                 <a href="<?php echo $order['invoice_url']; ?>" class="btn btn-default bg-black" style="padding: 10px 30px">Complete Transaction Now!</a>
