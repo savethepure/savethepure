@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+include APPPATH . '/third_party/Veritrans.php';
+
 class Checkout extends CI_Controller {
 
 	/**
@@ -191,12 +193,151 @@ class Checkout extends CI_Controller {
         }
         else{
             $this->load->model('M_checkout');
+	        $is_production = $this->config->item( 'midtrans_is_production' );
+            $client_key = $this->config->item('midtrans_client_key');
+	        if ($is_production){
+	        	$snap_url = 'https://app.midtrans.com/snap/snap.js';
+	        }else{
+		        $snap_url = 'https://app.sandbox.midtrans.com/snap/snap.js';
+	        }
             $q_order = $this->M_checkout->check_order($uuid);
             $data_order['total_amount'] = $q_order['total'];
             $data_order['id'] = $q_order['id'];
+            $data_order['already_process'] = $q_order['midtrans_id'] != NULL ? true : false;
+            $data_order['order'] = $q_order;
             $data_order['uuid'] = $uuid;
+	        $data_order['expire'] = $this->config->item( 'midtrans_expire' );
+            $data_order['snap_url'] = $snap_url;
+	        $data_order['client_key'] = $client_key;
             $this->load->view('payment',$data_order);
         }
+    }
+
+    public function get_token($uuid='')
+    {
+	    $response = array(
+		    'status' => 200,
+		    'data' => array(
+			    'token' => ''
+		    )
+	    );
+	    if($uuid == '')
+	    {
+	    	$response['status'] = 400;
+	    	$response['data'] = 'Not Found';
+		    $this->output
+			    ->set_status_header(400)
+			    ->set_content_type('application/json')
+			    ->set_output(json_encode($response));
+	    }
+	    else {
+		    $this->load->model( 'M_checkout' );
+		    $order = $this->M_checkout->get_one_order_detailed( $uuid );
+		    if (empty($order)){
+			    $response['status'] = 400;
+			    $response['data'] = 'Not Found';
+			    $this->output
+				    ->set_status_header(400)
+				    ->set_content_type('application/json')
+				    ->set_output(json_encode($response));
+		    }
+		    $is_production = $this->config->item( 'midtrans_is_production' );
+		    //	    $merchant_id = $this->config->item('midtrans_merchant_id');
+		    //	    $client_key = $this->config->item('midtrans_client_key');
+		    $server_key = $this->config->item( 'midtrans_server_key' );
+		    $available_payments = $this->config->item( 'midtrans_available_payments' );
+		    $expire = $this->config->item( 'midtrans_expire' );
+
+		    Veritrans_Config::$serverKey    = $server_key;
+		    Veritrans_Config::$isProduction = $is_production;
+		    Veritrans_Config::$isSanitized  = true;
+		    Veritrans_Config::$is3ds        = true;
+
+
+		    $transaction = array(
+			    'transaction_details' => array(
+				    'order_id'     => $order['uuid'],
+				    'gross_amount' => (int) $order['total'] // no decimal allowed
+			    ),
+			    'item_details'        => array(
+				    array(
+					    'id'       => $order['product_id'],
+					    'quantity' => $order['qty'],
+					    'price'    => $order['price'],
+					    'name'     => $order['product_name']
+				    ),
+				    array(
+					    'id'       => 'shipment',
+					    'quantity' => 1,
+					    'price'    => $order['shipping_cost'],
+					    'name'     => 'Shipment'
+				    ),
+			    ),
+			    'enabled_payments'    => $available_payments,
+			    'customer_details'    => array(
+				    'first_name' => $order['fullname'],
+				    'email'      => $order['email'],
+			    ),
+			    'expiry'              => array(
+				    'unit'     => 'day',
+				    'duration' => $expire
+			    )
+		    );
+		    $snapToken   = Veritrans_Snap::getSnapToken( $transaction );
+		    $response['data']['token'] = $snapToken;
+		    $this->output
+			    ->set_status_header(200)
+			    ->set_content_type('application/json')
+			    ->set_output(json_encode($response));
+	    }
+
+    }
+
+    public function update_payment()
+    {
+	    $response = array(
+		    'status' => 200,
+		    'data' => array(
+			    'token' => ''
+		    )
+	    );
+	    $this->load->library('form_validation');
+	    $this->form_validation->set_rules('payment_type', 'payment_type', 'required');
+	    $this->form_validation->set_rules('order_id', 'order_id', 'required');
+	    $this->form_validation->set_rules('trans_id', 'trans_id', 'required');
+	    if ($this->form_validation->run() == FALSE)
+	    {
+		    $response['status'] = 400;
+		    $response['data'] = 'Bad Request';
+		    $this->output
+			    ->set_status_header(400)
+			    ->set_content_type('application/json')
+			    ->set_output(json_encode($response));
+	    }
+	    $payment_type = $this->input->post('payment_type');
+	    $order_id = $this->input->post('order_id');
+	    $invoice = $this->input->post('invoice');
+	    $trans_id = $this->input->post('trans_id');
+	    $this->load->model('M_checkout');
+	    $success = $this->M_checkout->midtrans_pending($order_id, array(
+	    	'invoice_url' => $invoice,
+		    'nama_rekening_pengirim' => $payment_type,
+		    'midtrans_id' => $trans_id
+	    ));
+	    if ($success){
+		    $response['data'] = 'Waiting Payment';
+		    $this->output
+			    ->set_status_header(200)
+			    ->set_content_type('application/json')
+			    ->set_output(json_encode($response));
+	    }else{
+		    $response['status'] = 500;
+		    $response['data'] = 'Internal Server Error';
+		    $this->output
+			    ->set_status_header(500)
+			    ->set_content_type('application/json')
+			    ->set_output(json_encode($response));
+	    }
     }
 
     function completed_payment()

@@ -47,13 +47,26 @@
 								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 								<td><h6><?php echo $head_order['nama_rekening_pengirim'] ?></h6></td>
 							</tr>
-							
+                            <?php if ($head_order['status_pembayaran'] == 4){ ?>
+                            <tr>
+                                <td><h6>Challenge Card</h6></td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td><h6>You Need to Verify it on Midtrans Dashboard!!</h6></td>
+                            </tr>
+                            <tr>
+                                <td><h6>Midtrans Transaction ID</h6></td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td><h6><?php echo $head_order['midtrans_id'] ?></h6></td>
+                            </tr>
+							<?php } ?>
 						</table>
+						<?php if ($head_order['status_pembayaran'] != 4){ ?>
 						<div class="col-md-4">
 							<a href="<?php echo base_url() ?>see_order/change_status/<?php echo $head_order['uuid'] ?>">
 								<button class="btn btn-info">Verifikasi</button>
 							</a>
 						</div>
+						<?php } ?>
 					</div>
 					<div class="clearfix"></div>
 				</div>
