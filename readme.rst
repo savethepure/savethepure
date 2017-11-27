@@ -4,6 +4,17 @@ Save The Pure Project
 
 For the first time, when you pull this project into your local machine, dont forget to change the config base url to localhost/[foldername]
 
+
+Order Status List:
+    0 => Not Yet,
+    1 => Waiting For Payment
+    2 => Processing Order
+    3 => Delivered/Done Order
+    4 => Denied Payment
+    5 => Canceled Payment
+    6 => Expire Payment
+    7 => Challenged Card
+
 ###################
 What is CodeIgniter
 ###################

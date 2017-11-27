@@ -20,7 +20,7 @@ class M_done_order extends CI_Model {
 	 */
 	public function get_order()
 	{
-		$sql = "select * from `order` where status_pembayaran = 2";
+		$sql = "select * from `order` where status_pembayaran = 3";
 		$queryRec = $this->db->query($sql)->result_array();
 		return $queryRec;
 	}

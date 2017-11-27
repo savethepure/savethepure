@@ -47,7 +47,7 @@
 								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 								<td><h6><?php echo $head_order['nama_rekening_pengirim'] ?></h6></td>
 							</tr>
-                            <?php if ($head_order['status_pembayaran'] == 4){ ?>
+                            <?php if ($head_order['status_pembayaran'] == 7){ ?>
                             <tr>
                                 <td><h6>Challenge Card</h6></td>
                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -60,10 +60,10 @@
                             </tr>
 							<?php } ?>
 						</table>
-						<?php if ($head_order['status_pembayaran'] != 4){ ?>
+						<?php if ($head_order['status_pembayaran'] == 2){ ?>
 						<div class="col-md-4">
 							<a href="<?php echo base_url() ?>see_order/change_status/<?php echo $head_order['uuid'] ?>">
-								<button class="btn btn-info">Verifikasi</button>
+								<button class="btn btn-info">Complete Order</button>
 							</a>
 						</div>
 						<?php } ?>

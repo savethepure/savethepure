@@ -20,7 +20,7 @@ class M_see_order extends CI_Model {
 	 */
 	public function get_order()
 	{
-		$sql = "select * from `order` where status_pembayaran = 1 or status_pembayaran = 4";
+		$sql = "select * from `order` where status_pembayaran = 0 or status_pembayaran = 1 or status_pembayaran = 2  or status_pembayaran = 4 or status_pembayaran = 5 or status_pembayaran = 7";
 		$queryRec = $this->db->query($sql)->result_array();
 		return $queryRec;
 	}
@@ -41,6 +41,13 @@ class M_see_order extends CI_Model {
 	public function change_status($uuid)
 	{
 		$sql = "update `order` set status_pembayaran = 2 where `uuid` = ?";
+		$queryRec = $this->db->query($sql, array($uuid));
+		return $queryRec;
+	}
+
+	public function change_to_complete_order_status($uuid)
+	{
+		$sql = "update `order` set status_pembayaran = 3 where `uuid` = ?";
 		$queryRec = $this->db->query($sql, array($uuid));
 		return $queryRec;
 	}

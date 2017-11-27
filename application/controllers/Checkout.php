@@ -322,7 +322,8 @@ class Checkout extends CI_Controller {
 	    $success = $this->M_checkout->midtrans_pending($order_id, array(
 	    	'invoice_url' => $invoice,
 		    'nama_rekening_pengirim' => $payment_type,
-		    'midtrans_id' => $trans_id
+		    'midtrans_id' => $trans_id,
+		    'status_pembayaran' => 1
 	    ));
 	    if ($success){
 		    $response['data'] = 'Waiting Payment';
