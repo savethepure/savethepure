@@ -145,7 +145,7 @@
     jumlah_size = $('#jumlah_size').val();
     render = $('#render_size');
     fill = "";
-    for (var i = 0; i < jumlah_warna; i++) {
+    for (var i = 0; i < jumlah_size; i++) {
       fill += '<div class="form-group">';
       fill += '<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Size '+ (i+1) +'<span class="required">*</span></label>';
       fill += '<div class="col-md-6 col-sm-6 col-xs-12">';
