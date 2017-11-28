@@ -290,50 +290,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="ld ld-ball ld-flip"></div>
 					</div>
 				</div>
-				<div class="col-12 px1">
-					<div class="row">
-				        <div class="slider-wrapper-2 col col-3">
-				            <div class="slide one">
-				                <div class="slider-image">
-				                    <img src="<?php echo base_url() ?>assets/img/products/gabriel.jpg" alt="" class="img-responsive">
-				                    <div class="preview-icon">
-				                        <a href="<?php echo base_url() ?>assets/img/products/gabriel.jpg"><i class="icofont icofont-image"></i></a>
-				                    </div>
-				                </div>
-				            </div>
-				        </div>
-				        <div class="slider-wrapper-2 col col-3">
-				            <div class="slide one">
-				                <div class="slider-image">
-				                    <img src="<?php echo base_url() ?>assets/img/products/ray.jpg" alt="" class="img-responsive">
-				                    <div class="preview-icon">
-				                        <a href="<?php echo base_url() ?>assets/img/products/ray.jpg"><i class="icofont icofont-image"></i></a>
-				                    </div>
-				                </div>
-				            </div>
-				        </div>
-				        <div class="slider-wrapper-2 col col-3">
-				            <div class="slide one">
-				                <div class="slider-image">
-				                    <img src="<?php echo base_url() ?>assets/img/products/nadya.jpg" alt="" class="img-responsive">
-				                    <div class="preview-icon">
-				                        <a href="<?php echo base_url() ?>assets/img/products/nadya.jpg"><i class="icofont icofont-image"></i></a>
-				                    </div>
-				                </div>
-				            </div>
-				        </div>
-				        <div class="slider-wrapper-2 col col-3">
-				            <div class="slide one">
-				                <div class="slider-image">
-				                    <img src="<?php echo base_url() ?>assets/img/products/ghano.jpg" alt="" class="img-responsive">
-				                    <div class="preview-icon">
-				                        <a href="<?php echo base_url() ?>assets/img/products/ghano.jpg"><i class="icofont icofont-image"></i></a>
-				                    </div>
-				                </div>
-				            </div>
-				        </div>
-				    </div>
-				</div>
+				
 			</div>
 		</div>
 		
