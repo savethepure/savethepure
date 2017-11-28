@@ -94,7 +94,7 @@ class Midtrans extends CI_Controller {
 				$this->output
 					->set_status_header(200)
 					->set_content_type('application/json')
-					->set_output(json_encode("Terima Kasih Midtrans"));
+					->set_output(json_encode("Terima Kasih Midtrans Deny"));
 			}
 
 			if ($status_pembayaran == 6 && $change_status == TRUE)
@@ -115,14 +115,14 @@ class Midtrans extends CI_Controller {
 				$this->output
 					->set_status_header(200)
 					->set_content_type('application/json')
-					->set_output(json_encode("Terima Kasih Midtrans"));
+					->set_output(json_encode("Terima Kasih Midtrans Expire"));
 			}
 
 			if($change_status == TRUE){
 				$this->output
 					->set_status_header(200)
 					->set_content_type('application/json')
-					->set_output(json_encode("Terima Kasih Midtrans"));
+					->set_output(json_encode("Terima Kasih Midtrans Success"));
 			}else{
 				//TODO RETURN INTERNAL SERVER ERROR 500
 				$this->output

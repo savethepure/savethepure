@@ -200,7 +200,31 @@ class Checkout extends CI_Controller {
 	        }else{
 		        $snap_url = 'https://app.sandbox.midtrans.com/snap/snap.js';
 	        }
-            $q_order = $this->M_checkout->check_order($uuid);
+
+	        $q_order = $this->M_checkout->check_order($uuid);
+	        if ($q_order['midtrans_id'] == null){
+	        	try{
+			        //For Check Current Status
+			        $is_production = $this->config->item( 'midtrans_is_production' );
+			        $server_key = $this->config->item( 'midtrans_server_key' );
+			        Veritrans_Config::$serverKey    = $server_key;
+			        Veritrans_Config::$isProduction = $is_production;
+			        Veritrans_Config::$isSanitized  = true;
+			        Veritrans_Config::$is3ds        = true;
+			        $status = (array) Veritrans_Transaction::status($uuid);
+			        if ($status['status_code'] == 201 || $status['status_code'] == 200){
+                    $success = $this->M_checkout->midtrans_pending($status['order_id'], array(
+					        'nama_rekening_pengirim' => $status['payment_type'],
+					        'midtrans_id' => $status['transaction_id'],
+					        'status_pembayaran' => 1
+			            ));
+			        }
+		        }catch (\Exception $e){
+
+		        }
+	        }
+
+	        $q_order = $this->M_checkout->check_order($uuid);
             $data_order['total_amount'] = $q_order['total'];
             $data_order['id'] = $q_order['id'];
             $data_order['already_process'] = $q_order['midtrans_id'] != NULL ? true : false;

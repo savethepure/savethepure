@@ -172,7 +172,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     onClose: function(){
                         console.log("close")
                     },
-                    showOrderId: true
+                    showOrderId: true,
+                    autoCloseDelay: 3
                 });
             }
         });
