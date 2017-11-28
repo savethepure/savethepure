@@ -41,7 +41,7 @@ class See_order extends CI_Controller {
 	{
 		$uuid = $this->uri->segment('3');
 		$this->load->model('M_see_order');
-		$queryRecords = $this->M_see_order->change_status($uuid);
+		$queryRecords = $this->M_see_order->change_to_complete_order_status($uuid);
 		redirect('see_order');
 	}
 }

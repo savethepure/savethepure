@@ -45,35 +45,43 @@ class Midtrans extends CI_Controller {
 				// For credit card transaction, we need to check whether transaction is challenge by FDS or not
 				if ($data['type'] == 'credit_card'){
 					if($data['fraud'] == 'challenge'){
-						$status_pembayaran = 4;
+						$status_pembayaran = 7;
 						//Change to Challenge, Admin Must Check on MAP
 					}
 					else {
+						//Payment Complete (Processing Delivery)
 						$status_pembayaran = 2;
 					}
 				}
 			}
 			else if ($data['status'] == 'settlement'){
+				//Payment Complete (Processing Delivery)
 				$status_pembayaran = 2;
 			}
 			else if($data['status'] == 'pending'){
+				//Waiting Payment
 				$status_pembayaran = 1;
 			}
 			else if ($data['status'] == 'deny') {
-				$status_pembayaran = 5;
+				//Payment Deny //User Must Reorder
+				$status_pembayaran = 4;
 			}
 			else if ($data['status'] == 'expire') {
-				$status_pembayaran = 0;
+				//Payment Expire
+				$status_pembayaran = 6;
 			}
 			else if ($data['status'] == 'cancel') {
+				//Payment Cancel //User Must Reorder
 				$status_pembayaran = 5;
 			}
 
 			$this->load->model('M_see_order');
 			$change_status = $this->M_see_order->midtrans_change_status($data['order_id'],$data['midtrans_id'], $status_pembayaran);
 			//Change Status
-			if ($status_pembayaran == 5 && $change_status == TRUE){
-				//TODO ACTION FOR DENY, CANCEL
+
+
+			if (($status_pembayaran == 5 || $status_pembayaran == 4) && $change_status == TRUE){
+				//ACTION FOR DENY, CANCEL
 				$this->load->model('M_checkout');
 				$updated_data = array(
 					'invoice_url' => NULL,
@@ -89,8 +97,9 @@ class Midtrans extends CI_Controller {
 					->set_output(json_encode("Terima Kasih Midtrans"));
 			}
 
-			if ($status_pembayaran == 0 && $change_status == TRUE && $data['status'] == 'expire')
+			if ($status_pembayaran == 6 && $change_status == TRUE)
 			{
+				//ACTION FOR EXPIRE //Regenerate Order ID
 				$this->load->model('M_checkout');
 				$new_uuid = $this->uuid->v4();
 				$updated_data = array(
@@ -98,8 +107,8 @@ class Midtrans extends CI_Controller {
 					'nama_rekening_pengirim' => NULL,
 					'midtrans_id' => NULL,
 					'uuid' => $new_uuid
-			);
-				//Updated Data If Transaction Denied Or Canceled
+				);
+				//Updated Data
 				$this->M_checkout->midtrans_pending($data['order_id'], $updated_data);
 				$this->M_checkout->update_order_id_on_detail($data['order_id'], $new_uuid);
 

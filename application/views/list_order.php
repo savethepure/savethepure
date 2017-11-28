@@ -39,15 +39,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <td>
                                 <?php if ($order['status_pembayaran'] == 0 ){ ?>
                                     <a href="<?php echo base_url().'checkout/payment/'.$order['uuid'] ?>"><span class="label label-default">Not yet</span></a>
-                                <?php } else if($order['status_pembayaran'] == 1 || $order['status_pembayaran'] == 4){ ?>
-                                    <span class="label label-primary" data-toggle="tooltip" data-placement="bottom" title="your payment is being verified by our team">Verification</span>
+                                <?php } else if($order['status_pembayaran'] == 1){ ?>
+                                    <span class="label label-primary">Waiting For Payment</span>
                                 <?php } else if($order['status_pembayaran'] == 2){ ?>
-                                    <span class="label label-success">Done</span>
+                                    <span class="label label-success">Processing</span>
                                 <?php } else if($order['status_pembayaran'] == 3){ ?>
-									<span class="label label-success"></span>
+									<span class="label label-success">Delivered</span>
+                                <?php } else if($order['status_pembayaran'] == 4){ ?>
+                                    <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="your payment is denied, please contact our team for further info">Denied</span>
                                 <?php } else if($order['status_pembayaran'] == 5){ ?>
-                                    <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="your payment is denied, please contact our team for further info">Cancel/Denied</span>
-								<?php } ?>
+                                    <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="your payment is canceled, please contact our team for further info">Canceled</span>
+	                            <?php } else if($order['status_pembayaran'] == 6){ ?>
+                                    <a href="<?php echo base_url().'checkout/payment/'.$order['uuid'] ?>"><span class="label label-warning" data-toggle="tooltip" data-placement="bottom" title="your payment is expire, Please click this button for reorder">Expire</span></a>
+	                            <?php } else if($order['status_pembayaran'] == 7){ ?>
+                                    <span class="label label-primary" data-toggle="tooltip" data-placement="bottom" title="your payment is being verified by our team">Verification</span>
+                                <?php } ?>
                             </td>
                             <td>
 	                            <?php if ($order['invoice_url'] != NULL){ ?>
