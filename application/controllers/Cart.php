@@ -44,6 +44,7 @@ class Cart extends CI_Controller {
             'name'    => str_replace(' ', '-', $product->product_name),
 			'picture' => $product->picture,
 			'size'	  => $size,
+			'options' => array('Size' => $size),
 			'color'	  => $color
         );
         $this->cart->insert($data);
