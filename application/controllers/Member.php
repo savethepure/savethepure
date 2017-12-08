@@ -151,8 +151,8 @@ class Member extends CI_Controller {
 
 		 $config = Array(
 		'protocol' => 'smtp',
-		'smtp_host' => 'ssl://mx1.hostinger.co.id',
-		'smtp_port' => 465,
+		'smtp_host' => 'mx1.hostinger.co.id',
+		'smtp_port' => 587,
 		'smtp_user' => 'admin@savethepure.com', // change it to yours
 		'smtp_pass' => 'savethepure2017', // change it to yours
 		'mailtype' => 'html',
