@@ -65,6 +65,13 @@ class M_checkout extends CI_Model {
 		return $queryRec;
 	}
 
+	public function get_detail_item($uuid)
+	{
+		$sql = "select * from `detail_order` where order_id = ?";
+		$queryRec = $this->db->query($sql, array($uuid))->result_array();
+		return $queryRec;
+	}
+
 	public function midtrans_pending($uuid, $data)
 	{
 		$fields = array();
