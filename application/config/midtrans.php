@@ -18,10 +18,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 |
 */
-$config['midtrans_is_production'] = FALSE;
-$config['midtrans_merchant_id'] = 'M106397';
-$config['midtrans_client_key'] = 'VT-client-BIowa-0Gca8vlhzA';
-$config['midtrans_server_key'] = 'VT-server-cpfraZCXz1LWBsG7d20wrXZY';
+$config['midtrans_is_production'] = TRUE;
+$config['midtrans_merchant_id'] = 'M112696';
+$config['midtrans_client_key'] = 'Mid-client-cWIz2xOpmhU7tWnR';
+$config['midtrans_server_key'] = 'Mid-server-hR22e24OZ4Fjx6GSsGPBiSmI';
 //Available Payment Method
 $config['midtrans_available_payments'] = array(
 	'credit_card',

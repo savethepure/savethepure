@@ -265,6 +265,8 @@ class Checkout extends CI_Controller {
 				    ->set_content_type('application/json')
 				    ->set_output(json_encode($response));
 		    }
+		    $detail_items = $this->M_checkout->get_detail_item( $uuid );
+
 		    $is_production = $this->config->item( 'midtrans_is_production' );
 		    //	    $merchant_id = $this->config->item('midtrans_merchant_id');
 		    //	    $client_key = $this->config->item('midtrans_client_key');
@@ -277,26 +279,28 @@ class Checkout extends CI_Controller {
 		    Veritrans_Config::$isSanitized  = true;
 		    Veritrans_Config::$is3ds        = true;
 
+		    $item_list = [];
+			foreach($detail_items as $list){
+				$item_list[] = [
+					'id'       => $list['product_id'],
+					'quantity' => $list['qty'],
+					'price'    => $list['price'],
+					'name'     => $list['product_name']
+				];
+			}
+			$items = array_merge($item_list, array(
+				['id'       => 'shipment',
+				'quantity' => 1,
+				'price'    => $order['shipping_cost'],
+				'name'     => 'Shipment']
+			));
 
 		    $transaction = array(
 			    'transaction_details' => array(
 				    'order_id'     => $order['uuid'],
 				    'gross_amount' => (int) $order['total'] // no decimal allowed
 			    ),
-			    'item_details'        => array(
-				    array(
-					    'id'       => $order['product_id'],
-					    'quantity' => $order['qty'],
-					    'price'    => $order['price'],
-					    'name'     => $order['product_name']
-				    ),
-				    array(
-					    'id'       => 'shipment',
-					    'quantity' => 1,
-					    'price'    => $order['shipping_cost'],
-					    'name'     => 'Shipment'
-				    ),
-			    ),
+			    'item_details'        => $items,
 			    'enabled_payments'    => $available_payments,
 			    'customer_details'    => array(
 				    'first_name' => $order['fullname'],
